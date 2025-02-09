@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
@@ -93,36 +92,6 @@ window.addEventListener('scroll', () => {
   
 
 
-  // Select the main section
-const mainSection = document.querySelector(".main");
-
-let lastScrollPosition = 0;
-
-// Function to update background size and gradient
-function updateBackground() {
-    // Calculate scroll position
-    const scrollPosition = window.scrollY;
-
-    // Get the current viewport width
-    const viewportWidth = window.innerWidth;
-
-    // Adjust zoom rate based on screen width
-    const zoomRate = viewportWidth <= 480 ? 50 : (viewportWidth <= 768 ? 20 : 10);
-    const newSize = 100 + scrollPosition / zoomRate; // Adjust zoom speed based on screen size
-    const maxSize = 200; // Limit to 200%
-    const adjustedSize = Math.min(newSize, maxSize);
-
-    // Calculate gradient opacity
-    const gradientOpacity = Math.min(0.5 + scrollPosition / 2000, 0.8);
-
-    // Apply new styles
-    mainSection.style.backgroundSize = `${adjustedSize}%`;
-    mainSection.style.background = `
-        linear-gradient(to top, rgba(0, 0, 0, ${gradientOpacity}) 50%, rgba(0, 0, 0, ${gradientOpacity - 0.1}) 50%),
-        url('pics/valyasthad podium.jpg') no-repeat center center
-    `;
-}
-
 // Throttle or debounce scroll event for better performance
 window.addEventListener("scroll", () => {
     // Use requestAnimationFrame for smoother updates
@@ -182,6 +151,31 @@ function currentSlide(n) {
 // Start the slideshow on page load
 document.addEventListener("DOMContentLoaded", () => {
   showSlides();
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const images = ['pics/valyasthad-podium.jpg', 'pics/img1.jpeg','pics/img3.jpeg','pics/valyasthad-podium.jpg']; // Add your image URLs here
+  let index = 0;
+  const bgChanger = document.getElementById('main');
+
+  function changeBackground() {
+        bgChanger.style.setProperty("--bg-image", `linear-gradient(to top, rgba(0, 0, 0, 0.705) 50%, rgba(0, 0, 0, 0.705) 50%),url(${images[index]})`);
+        bgChanger.classList.remove("active"); // Reset animation
+        void bgChanger.offsetWidth; // Force reflow to restart animation
+        bgChanger.classList.add("active"); // Reapply animation
+
+        bgChanger.style.setProperty("--bg-image", `url(${images[index]})`);
+        bgChanger.style.setProperty("background-image", `linear-gradient(to top, rgba(0, 0, 0, 0.705) 50%, rgba(0, 0, 0, 0.705) 50%),url(${images[index]})`);
+
+        index = (index + 1) % images.length; // Loop images
+    }
+
+    setInterval(changeBackground, 4000); // Change every 4 seconds
+    changeBackground(); // Initial call
 });
 
 
