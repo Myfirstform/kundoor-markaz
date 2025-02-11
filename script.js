@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const images = ['pics/valyasthad-podium.jpg', 'pics/img1.jpeg','pics/img3.jpeg','pics/valyasthad-podium.jpg']; // Add your image URLs here
+  const images = ['pics/valyasthad-podium.jpg', 'pics/img1.jpeg','pics/img3.jpeg']; // Add your image URLs here
   let index = 0;
   const bgChanger = document.getElementById('main');
 
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         index = (index + 1) % images.length; // Loop images
     }
 
-    setInterval(changeBackground, 4000); // Change every 4 seconds
+    setInterval(changeBackground, 5000); // Change every 4 seconds
     changeBackground(); // Initial call
 });
 

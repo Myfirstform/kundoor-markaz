@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap);
 body{
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
     font-family:  Poppins, sans-serif !important;;
@@ -46,7 +46,7 @@ p{
     transition: background-size 0.4s ease-out, background 0.4s ease-out; /* Smooth transition */
     background-position: center;
     transition: background-image 1s ease-in-out;
-    animation: zoom 4s infinite alternate ease-in-out;
+    animation: zoom 5s infinite alternate ease-in-out;
 }
 
 @keyframes zoom {
@@ -54,7 +54,7 @@ p{
     background-size: 100%;
   }
   to {
-    background-size: 110%;
+    background-size: 105%;
   }
 }   
 @media (max-width: 480px){
@@ -344,14 +344,14 @@ body.no-scroll {
 
 
 .big-heading {
-    font-family:  Poppins, sans-serif !important;;
+    font-family:  Poppins, sans-serif !important;
     font-family: "Montserrat", serif;
     text-align: center;
     font-size: 5em;
     color: rgb(245, 202, 11);
     color: #04beb8;
     opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    /* animation: fadeInUp 1s ease forwards; */
     align-items: center;
     margin-top: -90px;
     transform: translate(-50%,-50%);
@@ -364,7 +364,27 @@ body.no-scroll {
         background-image: linear-gradient(red, blue);
         color: transparent;
         background-clip: text;
+        white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  display: inline-block;
+  border-right: 3px solid black; /* Cursor effect */
+  animation: typing 3s steps(30, end) forwards, blink 0.8s infinite;
 }
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
 
 .second-line {
     display: block;
@@ -1168,11 +1188,12 @@ img {
 
 
     .talk2{
-        width: 100%;
+        /* width: 100%; */
         height: auto;
         display: flex;
         justify-content: space-evenly;
         padding: 30px;
+        margin: 5px;
         z-index: 1000;
         background: rgb(37, 37, 37);
         border: 2px solid transparent;
@@ -1237,7 +1258,7 @@ img {
         justify-content: space-between;
     }
     .talk2 .untext{
-        width: 80%;
+        width: 90%;
         align-items: center;
         text-align: center;
         margin-top: 50px;
@@ -1366,15 +1387,20 @@ img {
         background: #ffffff;
         padding: 20px;
     }
+    .publi .quick{
+        width: 100%;
+    }
     .publi h1{
         /* background: rgba(0, 0, 0, 0.788); */
-        font-size: 40px;
-        margin: 50px;
+        /* text-decoration: underline; */
+        font-size: 50px;
+        margin-bottom: 30px;
         padding: 10px;
-        border: solid black;
-        border-radius: 10px;
-        width: fit-content;
-        color: #030303d2;
+        margin-top:50px;
+        /* border: solid black;
+        border-radius: 10px; */
+        width:fit-content;
+        color: #04beb8;
         text-align: center;
         justify-content: center;
     }
@@ -1406,15 +1432,25 @@ img {
         align-items: center;
     }
     .publi .container21 .round:hover{
-        background: #ffffff;
+        /* background: #ffffff; */
+        transition: 0.3s;
         padding: 20px;
     }
     .publi .container21 .round:hover h2{
-        color: rgba(0, 0, 0, 0.884);
+        /* color: rgba(0, 0, 0, 0.884); */
+    }
+    .publi .container21 .round:hover i{
+        background: #fff;
+        width: 60px;
+        height: 60px;
+        padding-top: 15px;
+        color: black;
+        border: transparent solid 2px;
+        transition: 0.5s;
+        border-radius: 50%;
     }
     @media (max-width:480px){
-        .publi{
-        }
+        
         .publi .container21{
             width: 100%;
             display: flex;
@@ -1432,7 +1468,12 @@ img {
         .publi .container21 h2{
             font-size: 20px;
         }
-        
+        .publi .container21 .round:hover i{
+            background: #fff;
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+        }
     }
 
 

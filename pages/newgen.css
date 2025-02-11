@@ -546,11 +546,21 @@ body.no-scroll {
 }
 .about .text h1{
     font-size: 30px;
+    color: rgba(0, 0, 0, 0.884);
 }
 .about .text h3{
-    color: #000000a8;
+    color: #000000e8;
+    padding-top: 10px;
+    padding-bottom:10px ;
 }
 .about .text p{
+    font-size: 14px;
+}
+.about .text ul{
+    padding: 10px;
+}
+.about .text li{
+    list-style: outside;
     font-size: 14px;
 }
 @media (max-width: 480px ){
@@ -715,7 +725,7 @@ body.no-scroll {
   
   .service-card img {
     width: 100%;
-
+    border: rgba(0, 0, 0, 0.699) 2px solid;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
@@ -858,7 +868,7 @@ body.no-scroll {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 2px 4px 2px 4px rgb(0, 0, 0);
-    margin: 10px;
+    margin-bottom: 20px;
     padding: 20px;
     color: white;
     box-sizing: border-box;
