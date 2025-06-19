@@ -63,7 +63,7 @@ p{
           background-size: 200%;
         }
         to {
-          background-size: 220%;
+          background-size: 210%;
         }
       }
 }
@@ -347,7 +347,9 @@ body.no-scroll {
     font-family:  Poppins, sans-serif !important;
     font-family: "Montserrat", serif;
     text-align: center;
-    font-size: 5em;
+    font-size: 5em; 
+   
+
     color: rgb(245, 202, 11);
     color: #04beb8;
     opacity: 0;
@@ -677,7 +679,8 @@ body.no-scroll {
   }
   
   .service-card {
-    background-color: #ffffff;
+    background-color: #009e99;
+        background-color: #036f6c;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -688,33 +691,33 @@ body.no-scroll {
 
   }
 
-  .service-card:hover {
-    background-color:rgba(0, 0, 0, 0.459);
-  }
-  .service-card:hover i{
+ 
+  /* .service-card:hover i{
       border: rgb(255, 255, 255) solid 2px;
       border-radius: 50%;
       padding: 10px;
-      background: #ffffff;
-      color: #04beb8;
-  }
+      background: #009e99;
+      color: #ffffff;
+  } */
 
   .service-card i{
-      margin-top: 30px;
+      width: 70px;
+      height: 70px;
+      /* margin-top: -30px; */
       padding: 10px;
       font-size: 30px;
-      color: #03c7c0;
-
+      color: #dcd7d7;
+      border-radius: 50%;
       
   }
   .service-card i:hover{
       /* border: 2px solid #04e0d909; */
   }
   .service-card:hover h3{
-    color: #ebe7e7f8;
+    /* color: #ebe7e7f8; */
   }
   .service-card:hover p {
-    color: #f8f8f8ec;
+    /* color: #f8f8f8ec; */
   }
   .service-card img {
     width: 100%;
@@ -739,13 +742,13 @@ body.no-scroll {
   
   .service-card h3 {
     font-size: 18px;
-    color: #020202bd ;
+    color: #ffffff ;
     margin: 20px 20px 10px;
   }
   
   .service-card p {
     font-size: 14px;
-    color: #020202ab;
+    color: #fffffff1;
     margin: 0 20px 20px;
   }
 
@@ -887,60 +890,6 @@ img {
     }
 }
 
-/* 
-@media (max-width:800px){
-    .fff{
-        justify-content: center;
-        align-items: center;
-    }
-    img{
-        justify-content: center;
-    }
-} */
-
-
-
-
-
-
-/* 
-
-.teachers{
-    background: url(pics/white2.webp);
-    width: 100%;
-} 
-.teachers h1{
-    color:#04beb8;
-    text-align: center;
-    font-size: 60px;
-
-}
-
-
-
-.container33{
-    justify-content:space-evenly;
-}
-.section33{
-    max-width: 100%;
-    padding:10px;
-    justify-content: space-evenly;
-    flex-direction: row;
-}
-.section33 img{
-    max-width:15%;
-    margin: 3% 0% 0% 3%;
-    justify-content: center;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.767);
-
-}
-@media (max-width:480px){
-    .section33 img{
-        max-width: 28%;
-    }
-}
- */
-
 
 
 
@@ -1009,6 +958,7 @@ img {
   .image-container {
     position: relative; /* To position the text over the image */
     border-radius:10px ;
+    text-align: center;
   }
   
   .image-container img {
@@ -1025,13 +975,15 @@ img {
     bottom: 10px;
     left: 10px;
     color: white;
-    font-size: 20px;
-    font-weight: lighter;
+    font-size: 15px;
+    font-weight:normal;
     font-family:  Poppins, sans-serif !important;;
     background-color: rgba(0, 0, 0, 0.6);
+    background-color: #04beb8;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 35px;
     display: block;
+    
   }
   
   /* Hover effect for images */
