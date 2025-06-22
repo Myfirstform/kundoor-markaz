@@ -1242,7 +1242,7 @@ img {
         
     }
     .misvis .container20 .box i{
-        color: #04e0d9;
+        color: #02c2bb;
         border: 2px transparent solid;
         border-radius: 50%;
         padding: 10px;
@@ -1258,7 +1258,7 @@ img {
     }
     
     .misvis .container20 .box {
-        background: rgba(0, 0, 0, 0.603);
+        background: #fcfcfcee;
         border: 1px solid #ddd;
         /* box-shadow: 2px 2px black; */
         border-radius: 8px;
@@ -1275,20 +1275,19 @@ img {
         font-size: 35px;
     }
     .misvis .container20 .box:hover{
-        background: rgba(0, 0, 0, 0.87);
         box-shadow: none;
     }
     
     
     .misvis .container20 .box h2 {
         font-size: 22px;
-        color: #04e0d9;
-        margin-top: 0; /* Adjusted to make space for the number */
+        color: #02c2bb;
+        margin-bottom: 20px; /* Adjusted to make space for the number */
         padding: 10px;
     }
     .misvis .container20 .box p {
         font-size: 14px;
-        color: #ffffff;
+        color: black;
     }
     
     /* Responsive Styles */
@@ -1392,11 +1391,10 @@ img {
         /* color: rgba(0, 0, 0, 0.884); */
     }
     .publi .container21 .round:hover i{
-        background: #fff;
         width: 60px;
         height: 60px;
         padding-top: 15px;
-        color: black;
+        color: #04beb8;
         border: transparent solid 2px;
         transition: 0.5s;
         border-radius: 50%;
