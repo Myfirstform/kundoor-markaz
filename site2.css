@@ -922,10 +922,16 @@ img {
     max-width: 1000px;
     margin: auto;
     overflow: hidden;
-    justify-content: left;
+    justify-content:center;
   }
 .slideshow-container .image-text{
         width: 90%;
+    display: none;
+    opacity: 0;
+}
+.image-container:hover .image-text {
+    display: block;
+    opacity: 1; /* Visible on hover */
 }
   @media (max-width:1100px){
     .slideshow{
@@ -981,8 +987,8 @@ img {
     font-weight:normal;
     font-family:  Poppins, sans-serif !important;;
     background-color: rgba(0, 0, 0, 0.6);
-    background-color: #04beb8;
-    padding: 5px;
+    background-color: #04beb8d1;
+    padding: 10px;
     border-radius: 35px;
     display: block;
     
