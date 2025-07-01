@@ -915,6 +915,17 @@ img {
     align-items: center;
     margin-top: 7%;
 }
+
+.image-text{
+    display: none;
+    opacity: 0;
+}
+.image-container:hover .image-text {
+    display: block;
+    opacity: 1; /* Visible on hover */
+}
+
+
 /* Slideshow container */
 .slideshow-container {
     width: 80%;
@@ -925,8 +936,6 @@ img {
     justify-content:center;
   }
 .slideshow-container .image-text{
-    display: none;
-    opacity: 0;
     width: 90%;
 }
 .image-container:hover .image-text{
@@ -943,7 +952,14 @@ img {
         text-align: center;
     }
    
-          
+      .image-text{
+    display: none;
+    opacity: 0;
+}
+.image-container:hover .image-text {
+    display: block;
+    opacity: 1; /* Visible on hover */
+}    
       
     
   }
