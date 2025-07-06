@@ -132,15 +132,32 @@ p{
     display: none; /* Initially hidden */
     z-index: 1000;
 }
+.main .image-container50 {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    position: fixed;
+    right: 6rem;  
+    bottom: 12rem;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    border: transparent 1px solid;
+    border-radius: 10px;
+}
 .main .image-container50 a img {
     width: 40px;
     float: right;
     margin:-1px;
+        background: #1f1e1ecf;
+        border: transparent solid 2px;
+        border-radius: 0%;
+        width: 50px;
+    
 }
 .main .image-container50 a img:hover{
-    border: 2px transparent solid;
-    border-radius: 50%;
     box-shadow: #00aaff,black,white;
+    background: #1f1e1e77;
+   
 }
 .linkbtn {
     margin-top: -300px;
@@ -495,7 +512,7 @@ body.no-scroll {
         right: 2rem;
     }
     .main .image-container50{
-    bottom: 10rem;
+    bottom: 9rem;
     right: 3rem; 
     }
 }
