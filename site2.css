@@ -6,8 +6,11 @@ body{
     width: 100%;
     margin: 0;
     padding: 0;
-    text-transform: capitalize;
+    text-transform:lowercase;
     /* background: #04e0d909; */
+}
+*::first-letter {
+  text-transform: uppercase;
 }
 html {
     scroll-behavior:smooth;
