@@ -147,7 +147,7 @@ footer {
     .hero {
       position: relative;
       height: 100vh;
-      background: url('main\ page.jpg') no-repeat center center/cover;
+      background: url('pics/page.jpg') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -416,3 +416,4 @@ footer {
   .modal-card { padding: 18px; }
   .modal-card h3 { font-size: 1.3rem; }
 }
+
