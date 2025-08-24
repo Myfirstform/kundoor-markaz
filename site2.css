@@ -368,7 +368,7 @@ body.no-scroll {
     font-family: "Montserrat", serif;
     text-align: center;
     font-size: 5em; 
-   
+    text-transform:capitalize;
 
     color: rgb(245, 202, 11);
     color: #04beb8;
