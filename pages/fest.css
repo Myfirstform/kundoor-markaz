@@ -203,7 +203,7 @@ a {
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.311);
 }
 
 .hero-content {
@@ -211,8 +211,14 @@ a {
   z-index: 2;
   color: rgba(255, 255, 255, 0.664);
   animation: fadeIn 1.5s ease;
-    background: rgba(0, 0, 0, 0.74);
-
+    background: rgba(0, 0, 0, 0.502);
+padding: 20px;
+border: transparent 1px solid;
+border-radius: 10px;
+top: 500px;
+display: flex;
+flex-direction: column;
+justify-content: left;
 }
 
 
@@ -250,12 +256,14 @@ a {
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: left;
 }
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+    text-align: left;
+
 }
 
 /* ---------- COUNTDOWN ---------- */
@@ -288,13 +296,48 @@ a {
   color: #e63946;
 }
 
+@media (max-width: 1040px) {
+.countdown-section {
+  padding: 60px 10px;
+  text-align: center;
+  background: #fff;
+}
+.countdown-section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #1d3557;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.countdown div {
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  min-width: 80px;
+}
+.countdown span {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  color: #e63946;
+}
+.countdown span p {
+    font-size: 1.1rem;
+
+}
+}
+
 /* ---------- ABOUT ---------- */
 .about-section {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 40px;
-  padding: 80px 40px;
+  gap: 10px;
+  padding: 0 0;
   background: #f1f5f9;
   flex-wrap: wrap;
 }
@@ -698,7 +741,7 @@ footer {
     position: static;
     order: 1;
     z-index: auto;
-    background: rgba(0, 0, 0, 0.475);
+    background: rgba(0, 0, 0, 0.151);
     color: #fff;
     border-radius: 0 0 12px 12px;
     margin-bottom: 0;
@@ -721,7 +764,10 @@ footer {
 .hero h1{
   color: white;
 }
+.hero p {
+  font-size: 0.8rem;
+margin-top: 250px;
 
 }
-
+}
 /* ...existing code... */
