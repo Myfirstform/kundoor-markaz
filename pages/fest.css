@@ -145,8 +145,17 @@ footer {
 body {
   font-family: 'Poppins', sans-serif;
   color: #222;
-  background: #f8f9fa;
-  line-height: 1.6;
+ background: url('pics/img27.jpg') center/cover no-repeat;
+  position: relative;
+  
+      background-position: center;
+    background-size: cover; /* Default size */
+    background-attachment: fixed; /* Keeps background fixed for parallax effect */
+    height: 100vh; /* Full screen height */
+    transition: background-size 0.4s ease-out, background 0.4s ease-out; /* Smooth transition */
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    animation: zoom 5s infinite alternate ease-in-out;  line-height: 1.6;
 }
 
 /* Links & Buttons */
@@ -203,7 +212,7 @@ a {
 .hero .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.311);
+  background: rgba(0, 0, 0, 0.11);
 }
 
 .hero-content {
@@ -365,14 +374,22 @@ justify-content: left;
 
 /* ---------- HIGHLIGHTS ---------- */
 .highlights {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #e9ecef, #dee2e6);
+  padding: 140px 20px;
+  /* background: linear-gradient(135deg, #e9ecef, #dee2e6); */
+  background: transparent;
   text-align: center;
+ 
+}
+.highlights .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.164);
 }
 .highlights h2 {
   margin-bottom: 40px;
+  text-shadow: #222 10px 10px 20px;
   font-size: 2.2rem;
-  color: #1d3557;
+  color: #f0f2f4f5;
 }
 .highlight-grid {
   display: grid;
