@@ -958,6 +958,7 @@ img {
   }
 .slideshow-container .image-text{
     width: 90%;
+    text-transform: capitalize;
 }
 .image-container:hover .image-text{
     display: block;
