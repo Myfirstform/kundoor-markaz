@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+       
 body{
     /* font-family: Georgia, 'Times New Roman', Times, serif; */
     font-family:  Poppins, sans-serif !important;;
@@ -8,6 +10,10 @@ body{
     padding: 0;
     text-transform: lowercase;
 }
+ body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Tailwind Slate 50 equivalent */
+        }
 html {
     scroll-behavior:smooth;
   }
@@ -534,67 +540,33 @@ body.no-scroll {
 
 
 /* /////////////////////////////////////////////////////////// */
-.about{
-    width: 100%;
-}
-.text{
-    width: 60%;
-    align-items: center;
-    padding: 30px;
-    margin: 20px;
-    border: transparent 3px solid;
-    box-shadow: 5px 3px 3px 3px rgba(0, 0, 0, 0.514);
-    margin-top: 10%;
-}
-.about .text h1{
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.884);
-}
-.about .text h3{
-    color: #000000e8;
-    padding-top: 10px;
-    padding-bottom:10px ;
-}
-.about .text p{
-    font-size: 14px;
-}
-.about .text ul{
-    padding: 10px;
-}
-.about .text li{
-    list-style: outside;
-    font-size: 14px;
-}
-@media (max-width: 480px ){
-    .about{
-       padding: 0;
-        padding: 20px;
-    }
-    .text{
-        width: 90%;
-    }
-}
-.about .btnall{
-    margin: 20px;
-}
-.about .btnall button{
-    width: 100px;
-    padding: 10px;
-    background-color: rgb(179, 0, 0);
-    border: 1px solid transparent;
-    border-radius: 10px;
-    color: #ffffff;
-    margin: 20px;
-}
-.about .btnall{
-    font-size: 16px ;
-    color: #ffffff;
-}
-.about .btnall button:hover{
-    padding: 7px;
-    transition: 0.3s;
-}
-
+.about {
+            width: 100%;
+            display: flex; 
+            justify-content: center;
+        }
+        .text {
+            width: 90%; /* Wider text container for better readability */
+            max-width: 800px; /* Limit max width on desktop */
+            padding: 30px;
+            margin: 20px auto;
+            border: transparent 3px solid;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Lighter, cleaner shadow */
+            margin-top: 50px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        .about .text p {
+            font-size: 16px; 
+            line-height: 1.6;
+        }
+        
+        @media (min-width: 768px) {
+            .text {
+                width: 70%;
+            }
+        }
+        
 /* ///////////////////////////////////////////////////////////////// */
 .contact{
     display: flex;
@@ -744,56 +716,244 @@ body.no-scroll {
 /* ////////////////////////////////////////////////////////////////////// */
 
 
-.pics{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-.pics .picgallery {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    
-}
-.pics .picgallery .pid img{
-   max-width: 350px;
-  height: auto;
-  border-radius: 5px;
-    margin: 5px;
-    box-shadow: rgba(0, 0, 0, 0.404) 2px 2px 2px 2px;
-    transition: transform 0.3s ease;
-    transform: scale(1);
+.pics {
+            width: 100%;
+            padding: 40px 0;
+        }
+        
+        .pics .picgallery {
+            /* CSS GRID Layout for uniform, row-based presentation */
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+            gap: 24px; /* Space between grid items */
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-}
+        /* Tablet/Medium Screens */
+        @media (max-width: 1024px) {
+            .pics .picgallery {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on tablets */
+                gap: 16px; 
+                padding: 16px; 
+            }
+        }
+        
+        /* Mobile Screens (2 columns) */
+        @media (max-width: 640px) {
+            .pics .picgallery {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+                gap: 16px; 
+                padding: 16px; 
+            }
+        }
 
-.pics .picgallery .pid img:hover {
-    transform: scale(1.1);
-    border-radius: 10px;
-}
-.pics .picgallery .pid {
-    margin: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    background: rgba(229, 228, 228, 0.854);
-    box-shadow: rgba(0, 0, 0, 0) 2px 2px 2px 2px;
-}
-.pics .picgallery .pid .image-text {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 350px;
-    text-align: left;
-    color: #000000c0;
-    font-size: 16px;
-    margin-top: 10px;
-    text-transform: lowercase;
-    font-size: 14px;
-}
+        .pics .picgallery .pid {
+            margin: 0; 
+            padding: 0; 
+            border-radius: 12px;
+            background: #ffffff; 
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative; 
+            
+            /* Grid Item Styling */
+            height: 100%; /* Fills grid area */
+            cursor: pointer;
+        }
 
+        .pics .picgallery .pid:hover {
+            transform: translateY(-5px); 
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px; 
+        }
+        
+        /* Video Icon Overlay (New) */
+        .pid.video-item .pid-image-wrapper::after {
+            content: '\25B6'; /* Unicode for a play triangle */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            padding-left: 5px; /* Adjust for triangle centering */
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        
+        .pid.video-item:hover .pid-image-wrapper::after {
+            opacity: 1;
+        }
+
+        /* Flexible Image Container (Enforcing uniform aspect ratio for clean row look) */
+        .pid-image-wrapper {
+            width: 100%;
+            /* Forces a 4:3 aspect ratio for clean, row-based uniformity */
+            aspect-ratio: 4 / 3; 
+            height: auto; 
+            background-color: #e5e7eb; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .pics .picgallery .pid img {
+            width: 100%; /* Image fills its container horizontally */
+            height: 100%; /* Image fills its container vertically */
+            max-width: 100%;
+            max-height: 100%;
+            /* Use cover to ensure the 4:3 area is completely filled, cropping if necessary */
+            object-fit: cover; 
+            border-radius: 0; 
+            margin: 0;
+            box-shadow: none;
+            transition: none;
+            transform: none;
+        }
+        
+        /* Ensures video placeholders are visible and dark */
+        .pid.video-item .pid-image-wrapper img {
+            background-color: #374151; /* Dark gray background for video thumbnails */
+            min-height: 100px; /* Ensure a minimum visible height on mobile */
+        }
+
+
+        .pics .picgallery .pid .image-text {
+            padding: 15px;
+            color: #111827;
+            font-size: 15px;
+            line-height: 1.4;
+            font-weight: 500;
+            text-transform: none;
+        }
+        
+        /* --- Modal Overlay Styles (Updated for Full Image Display) --- */
+        #image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #modal-content {
+            width: 40%;
+            position: relative;
+            max-width: 90vw;
+            /* CRUCIAL CHANGE: Set max height to 70vh as requested */
+            max-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        @media screen and (max-width:600px) {
+            #modal-content {
+            width: 100%;
+            position: relative;
+            max-width: 90vw;
+            /* CRUCIAL CHANGE: Set max height to 70vh as requested */
+            max-height: 70vh; 
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        } 
+        }
+
+        #image-modal.active {
+            display: flex;
+        }
+        #image-modal.active #modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        /* Container that defines the area the media can fill vertically */
+        #modal-media-container {
+            max-width: 100%;
+            flex: 1; /* Key: Fills the remaining vertical space */
+            height: 100%; /* Explicitly use the calculated flex height */
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Force media element to use 100% of the container box
+           and rely on object-fit: contain to ensure full image visibility */
+        #modal-media-container > * { 
+            width: 100%; /* Take up the full width of the container */
+            height: 100%; /* Take up the full height of the container */
+            object-fit: contain; /* CRUCIAL: Scales the image down to fit completely inside without cropping */
+            display: block; 
+        }
+
+        #modal-caption {
+            padding: 15px 20px;
+            font-size: 16px;
+            line-height: 1.4;
+            font-weight: 500;
+            color: #1f2937;
+            background-color: #ffffff;
+            text-align: center;
+            /* Ensure caption height is fixed and doesn't grow */
+            flex-shrink: 0; 
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1010;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            transition: background 0.2s;
+        }
+
+        #close-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #000;
+        }
 
 /* /////////////////////////////////////////////////////////// */
 
