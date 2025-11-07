@@ -425,8 +425,89 @@
     font-size: 2.5rem;
   }
   
+  /* Faculty Section - Mobile Optimized */
+  .faculty-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
   .faculty-image {
-    height: 250px;
+    height: 200px;
+  }
+  
+  .faculty-info {
+    padding: var(--spacing-md);
+  }
+  
+  .faculty-name {
+    font-size: 1.1rem;
+  }
+  
+  /* Mission & Vision - Mobile */
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .mv-card {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Gallery - Mobile */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Contact Form - Mobile */
+  .contact-form {
+    padding: var(--spacing-lg);
+  }
+  
+  /* Stats - Mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  /* Principal Section - Mobile */
+  .principal-section {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .principal-image {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .principal-message {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .faculty-grid {
+    gap: var(--spacing-md);
+  }
+  
+  .faculty-image {
+    height: 180px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .mv-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.75rem;
   }
 }
 
