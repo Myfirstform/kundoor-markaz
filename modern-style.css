@@ -223,153 +223,6 @@ button {
   transition: all var(--transition-base);
 }
 
-@media (max-width: 968px) {
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    background-color: #FFFFFF;
-    padding: var(--spacing-lg);
-    gap: var(--spacing-md);
-    transform: translateX(-100%);
-    transition: transform var(--transition-base);
-    box-shadow: var(--shadow-lg);
-    max-height: calc(100vh - var(--header-height));
-    overflow-y: auto;
-  }
-  
-  .nav-menu.active {
-    transform: translateX(0);
-  }
-  
-  .header-social {
-    margin-left: 0;
-    justify-content: center;
-  }
-  
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-  }
-  
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-}
-
-/* MOBILE RESPONSIVENESS FOR HOMEPAGE SECTIONS */
-@media (max-width: 768px) {
-  /* Hero Section - Mobile */
-  .hero {
-    min-height: 80vh;
-    background-attachment: scroll;
-  }
-  
-  .hero-content {
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
-  
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  
-  .hero-description {
-    font-size: 1rem;
-  }
-  
-  .hero-cta {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .hero-cta .btn {
-    width: 100%;
-  }
-  
-  /* About Section (Excellence in Islamic & Modern Education) - Mobile */
-  #about .container > div {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: var(--spacing-xl) !important;
-  }
-  
-  #about .container > div > div:first-child {
-    order: 2;
-  }
-  
-  #about .container > div > div:last-child {
-    order: 1;
-  }
-  
-  #about img {
-    height: 250px !important;
-  }
-  
-  /* Campus Explore Section - Mobile */
-  .section .container > div[style*="grid-template-columns: 1fr 1fr"] {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: var(--spacing-xl) !important;
-  }
-  
-  .swiper-slide img {
-    height: 300px !important;
-  }
-  
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 35px !important;
-    height: 35px !important;
-  }
-  
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 20px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Extra small screens */
-  .hero-title {
-    font-size: 1.75rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.875rem;
-  }
-  
-  .hero-description {
-    font-size: 0.95rem;
-  }
-  
-  #about img,
-  .swiper-slide img {
-    height: 200px !important;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
-  }
-  
-  .section-description {
-    font-size: 1rem;
-  }
-  
-  .btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-  }
-}
-
 /* HERO */
 .hero {
   position: relative;
@@ -677,7 +530,59 @@ textarea:focus {
   outline-offset: 2px;
 }
 
+/* ============================================
+   RESPONSIVE MEDIA QUERIES
+   All media queries consolidated here for proper loading
+   ============================================ */
+
+/* TABLET AND MOBILE - 968px and below */
+@media (max-width: 968px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding: var(--spacing-lg);
+    gap: var(--spacing-md);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+  
+  .header-social {
+    margin-left: 0;
+    justify-content: center;
+  }
+  
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+/* MOBILE - 768px and below */
 @media (max-width: 768px) {
+  /* Spacing adjustments */
   :root {
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
@@ -686,5 +591,115 @@ textarea:focus {
   
   .section {
     padding: var(--spacing-2xl) 0;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Hero Section - Mobile */
+  .hero {
+    min-height: 80vh;
+    background-attachment: scroll;
+  }
+  
+  .hero-content {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+  
+  /* About Section (Excellence in Islamic & Modern Education) - Mobile */
+  #about .container > div {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-xl) !important;
+  }
+  
+  #about .container > div > div:first-child {
+    order: 2;
+  }
+  
+  #about .container > div > div:last-child {
+    order: 1;
+  }
+  
+  #about img {
+    height: 250px !important;
+  }
+  
+  /* Campus Explore Section - Mobile */
+  .section .container > div[style*="grid-template-columns: 1fr 1fr"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-xl) !important;
+  }
+  
+  .swiper-slide img {
+    height: 300px !important;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px !important;
+  }
+  
+  /* HIDE FACULTY SECTION ON MOBILE (HOMEPAGE ONLY) */
+  body > section:has(.faculty-grid) {
+    display: none !important;
+  }
+}
+
+/* EXTRA SMALL MOBILE - 480px and below */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .hero-description {
+    font-size: 0.95rem;
+  }
+  
+  #about img,
+  .swiper-slide img {
+    height: 200px !important;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
   }
 }
