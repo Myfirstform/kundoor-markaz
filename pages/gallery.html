@@ -16,34 +16,17 @@
     <link rel="stylesheet" href="../modern-style.css">
     <link rel="stylesheet" href="../modern-components.css">
     <style>
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .iframe-container {
+            width: 100%;
             margin-top: 2rem;
         }
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
+        .iframe-container iframe {
+            min-height: 600px;
         }
         @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1rem;
+            .iframe-container iframe {
+                height: 70vh;
+                min-height: 500px;
             }
         }
     </style>
@@ -115,183 +98,13 @@
     <!-- GALLERY SECTION -->
     <section class="section bg-light">
         <div class="container">
-            <div class="gallery-grid">
-                
-                <!-- REVERSED IMAGE ORDER BEGINS HERE (31 -> 1) -->
-
-                <!-- All image elements are now wrapped in a .pid-image-wrapper for consistent sizing -->
-                
-                <!-- <div class="pid video-item" data-video-url="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
-                    <div class="pid-image-wrapper">
-                        <img src="https://placehold.co/400x250/374151/374151" alt="Student Event Video Thumbnail" loading="lazy">
-                    </div>
-                    <div class="image-text"><p>Highlight Reel from the Annual Sports Day 2025</p> </div>
-                </div>
-
-                <div class="pid video-item" data-video-url="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4">
-                    <div class="pid-image-wrapper">
-                        <img src="https://placehold.co/400x480/374151/374151" alt="Campus Tour Video Thumbnail" loading="lazy">
-                    </div>
-                    <div class="image-text"><p>A guided virtual tour of our beautiful campus.</p> </div>
-                </div> -->
-
-
-        
-
-
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img50.jpg" alt="Campus Image 50" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-    <img src="pics/img49.jpg" alt="Campus Image 49" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-    <img src="pics/img48.jpg" alt="Campus Image 48" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img47.jpg" alt="Image 47" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img46.jpg" alt="Image 46" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img45.jpg" alt="Image 45" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img44.jpg" alt="Image 44" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img43.jpg" alt="Image 43" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img42.jpg" alt="Image 42" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img41.jpg" alt="Image 41" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img40.jpg" alt="Image 40" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img39.jpg" alt="Image 39" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img38.jpg" alt="Image 38" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img37.jpg" alt="Image 37" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img36.jpg" alt="Image 36" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img35.jpg" alt="Image 35" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img34.jpg" alt="Image 34" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img33.jpg" alt="Image 33" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img32.jpg" alt="Image 32" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img31.jpg" alt="Image 31" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img30.jpg" alt="Image 30" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img29.jpg" alt="Image 29" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img28.jpg" alt="Image 28" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img27.jpg" alt="Image 27" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img26.jpg" alt="Image 26" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img25.jpg" alt="Image 25" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img24.jpg" alt="Image 24" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img23.jpg" alt="Image 23" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img22.jpg" alt="Image 22" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img21.jpg" alt="Image 21" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img20.jpg" alt="Image 20" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img19.jpg" alt="Image 19" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img18.jpg" alt="Image 18" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img17.jpg" alt="Image 17" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img16.jpg" alt="Image 16" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img15.jpg" alt="Image 15" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img14.jpg" alt="Image 14" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img13.jpg" alt="Image 13" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img12.jpg" alt="Image 12" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img11.jpg" alt="Image 11" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img10.jpg" alt="Image 10" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img9.jpg" alt="Image 9" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img8.jpg" alt="Image 8" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img7.jpg" alt="Image 7" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/img6.jpg" alt="Image 6" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/loggo.png" alt="Image 5" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/IMG-20250801-WA0028.jpg" alt="Campus Image 4" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/union inaguration.jpg" alt="Students Union Inauguration 2025-26" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/fest.jpeg" alt="College Fest Kalam - White Group Winners" loading="lazy">
-</div>
-<div class="gallery-item" data-aos="fade-up">
-    <img src="pics/book launching.jpeg" alt="Book Launch - SANJARAM" loading="lazy">
-</div>
-
-                <!-- REVERSED IMAGE ORDER ENDS HERE -->
-
+            <div class="iframe-container" data-aos="fade-up">
+                <iframe 
+                    src="https://image-book-cms.vercel.app/" 
+                    title="Gallery Images"
+                    style="width: 100%; height: 80vh; border: none; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);"
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
