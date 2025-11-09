@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="../modern-style.css">
     <link rel="stylesheet" href="../modern-components.css">
     <style>
+        body {
+            overflow-x: hidden;
+        }
+        .gallery-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
         .iframe-container {
             width: 100%;
             max-width: 1200px;
@@ -88,7 +96,12 @@
     <!-- GALLERY SECTION -->
     <section class="section">
         <div class="container">
-            <div class="iframe-container" data-aos="fade-up">
+            <div class="gallery-description" data-aos="fade-up">
+                <p style="line-height: 1.8; font-size: 1.1rem;">
+                    Stay connected with Kundoor Markazu Ssaqafathil Islamiyya through our latest news, events, and announcements. This page keeps you informed about program highlights, student activities, and special occasions. Check back regularly to stay updated with all that's happening on our campus!
+                </p>
+            </div>
+            <div class="iframe-container" data-aos="fade-up" data-aos-delay="100">
                 <iframe 
                     src="https://image-book-cms.vercel.app/" 
                     title="Gallery Images"
