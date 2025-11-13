@@ -121,63 +121,68 @@
     </section>
     
     <!-- COURSES -->
-    <section id="courses" class="section bg-light">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
+    <section id="courses" class="section" style="padding: 4rem 0 0;">
+        <div class="container" style="max-width: 100%; padding: 0;">
+            <div class="section-header" data-aos="fade-up" style="padding: 0 15px 2rem;">
                 <p class="section-subtitle">Academic Programs</p>
                 <h2 class="section-title">Our Courses</h2>
-                <p class="section-description">
-                    Comprehensive programs designed to provide excellence in Islamic and modern education
-                </p>
             </div>
             
-            <div class="courses-grid">
-                <div class="course-card" data-aos="fade-up" data-aos-delay="50">
-                    <div class="course-icon"><i class="fas fa-mosque"></i></div>
-                    <div class="course-content">
-                        <h3 class="course-title">Faizy Program</h3>
-                        <p class="course-description">
-                            Deep knowledge in Qur'anic studies, Hadith, Fiqh, and Arabic, English, Urdu languages. 
-                            Students complete final two years at Jamia Nooriyya Arabiyya, Pattikkad.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="course-icon"><i class="fas fa-book-open"></i></div>
-                    <div class="course-content">
-                        <h3 class="course-title">Ashkary Program</h3>
-                        <p class="course-description">
-                            Comprehensive training in Islamic education. Students complete their entire course here, 
-                            gaining in-depth knowledge to become Islamic scholars and educators.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="course-icon"><i class="fas fa-book"></i></div>
-                    <div class="course-content">
-                        <h3 class="course-title">Higher Secondary</h3>
-                        <p class="course-description">
-                            Balanced curriculum integrating Islamic studies with modern education, providing strong 
-                            foundation in multiple educational sectors along with essential Islamic teachings.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="course-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="course-content">
-                        <h3 class="course-title">UG Program</h3>
-                        <p class="course-description">
-                            Combines Islamic studies with modern academics, offering well-rounded education. 
-                            Students gain expertise in Islamic sciences, language, and contemporary subjects.
-                        </p>
-                    </div>
-                </div>
+            <!-- Responsive iframe container -->
+            <div style="width: 100%; overflow: hidden; margin: 0; padding: 0;">
+                <iframe 
+                    src="https://preview--image-book-cms.lovable.app/courses" 
+                    style="width: 100%;
+                           min-height: 800px;
+                           border: none;
+                           display: block;
+                           margin: 0;
+                           padding: 0;
+                           overflow: hidden;"
+                    frameborder="0"
+                    scrolling="no"
+                    onload="this.style.opacity='1'; this.contentWindow.document.body.style.margin='0'; this.contentWindow.document.body.style.padding='0';"
+                    loading="eager">
+                </iframe>
             </div>
         </div>
     </section>
+    
+    <style>
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            #courses {
+                padding: 3rem 0 0 !important;
+            }
+            #courses iframe {
+                min-height: 700px !important;
+            }
+        }
+        @media (max-width: 992px) {
+            #courses iframe {
+                min-height: 650px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            #courses {
+                padding: 2rem 0 0 !important;
+            }
+            #courses iframe {
+                min-height: 500px !important;
+            }
+        }
+        @media (max-width: 576px) {
+            #courses {
+                padding: 1.5rem 0 0 !important;
+            }
+            #courses .section-header {
+                padding: 0 15px 1.5rem !important;
+            }
+            #courses iframe {
+                min-height: 400px !important;
+            }
+        }
+    </style>
     
     <!-- FACULTY SECTION -->
     <section class="faculty-section" style="margin: 4rem 0; width: 100%;">
