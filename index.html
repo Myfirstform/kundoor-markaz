@@ -123,65 +123,21 @@
     <!-- COURSES -->
     <section id="courses" class="section" style="padding: 2rem 0 0;">
         <div style="width: 100%; max-width: 100%; margin: 0; padding: 0;">
-            <div style="width: 100%; height: 100%;">
+            <div style="width: 100%;">
                 <iframe 
+                    id="courses-iframe"
                     src="https://preview--image-book-cms.lovable.app/courses" 
                     style="
                         width: 100%;
-                        height: 100vh;
-                        min-height: 800px;
+                        min-height: 1000px;
                         border: none;
                         display: block;
                         margin: 0;
                         padding: 0;
-                        overflow: visible;
+                        overflow: hidden;
                     "
                     frameborder="0"
                     scrolling="no"
-                    onload="
-                        this.style.opacity='1';
-                        const iframeDoc = this.contentDocument || this.contentWindow.document;
-                        if (iframeDoc) {
-                            // Remove any existing header that might be in the iframe
-                            const header = iframeDoc.querySelector('header, .header');
-                            if (header) header.style.display = 'none';
-                            
-                            // Reset body styles
-                            iframeDoc.body.style.margin = '0';
-                            iframeDoc.body.style.padding = '0';
-                            iframeDoc.body.style.overflow = 'visible';
-                            
-                            // Auto-resize iframe to fit content
-                            const resizeIframe = () => {
-                                const contentHeight = Math.max(
-                                    iframeDoc.body.scrollHeight,
-                                    iframeDoc.documentElement.scrollHeight,
-                                    iframeDoc.body.offsetHeight,
-                                    iframeDoc.documentElement.offsetHeight,
-                                    iframeDoc.body.clientHeight,
-                                    iframeDoc.documentElement.clientHeight
-                                );
-                                this.style.height = Math.max(contentHeight, 600) + 'px';
-                            };
-                            
-                            // Initial resize
-                            resizeIframe();
-                            
-                            // Add resize observer for dynamic content
-                            if (typeof ResizeObserver !== 'undefined') {
-                                new ResizeObserver(resizeIframe).observe(iframeDoc.body);
-                            }
-                            
-                            // Also check for content changes
-                            const observer = new MutationObserver(resizeIframe);
-                            observer.observe(iframeDoc.body, {
-                                childList: true,
-                                subtree: true,
-                                attributes: true,
-                                characterData: true
-                            });
-                        }
-                    "
                     loading="eager">
                 </iframe>
             </div>
@@ -189,43 +145,121 @@
     </section>
     
     <style>
-        /* Responsive adjustments */
+        /* Base styles for the courses section */
         #courses {
             padding: 1rem 0 0 !important;
-            overflow: hidden;
+            overflow: visible;
+            position: relative;
         }
+        
         #courses iframe {
-            min-height: 600px;
+            width: 100%;
+            min-height: 1000px;
             transition: height 0.3s ease-in-out;
+            border: none;
         }
         
-        @media (max-width: 1200px) {
+        /* Responsive adjustments */
+        @media (min-width: 1200px) {
             #courses iframe {
-                min-height: 550px;
+                min-height: 1200px;
             }
         }
         
-        @media (max-width: 992px) {
+        @media (max-width: 1199px) and (min-width: 992px) {
             #courses iframe {
-                min-height: 500px;
+                min-height: 1100px;
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 991px) and (min-width: 768px) {
             #courses iframe {
-                min-height: 450px;
+                min-height: 1000px;
             }
         }
         
-        @media (max-width: 576px) {
-            #courses {
-                padding: 0.5rem 0 0 !important;
-            }
+        @media (max-width: 767px) and (min-width: 576px) {
             #courses iframe {
-                min-height: 400px;
+                min-height: 900px;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            #courses iframe {
+                min-height: 800px;
             }
         }
     </style>
+    
+    <script>
+        // Wait for the iframe to load
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('courses-iframe');
+            
+            if (iframe) {
+                iframe.onload = function() {
+                    try {
+                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        
+                        // Remove any header elements that might be in the iframe
+                        const header = iframeDoc.querySelector('header, .header');
+                        if (header) header.style.display = 'none';
+                        
+                        // Make sure the body has no margins or padding
+                        iframeDoc.body.style.margin = '0';
+                        iframeDoc.body.style.padding = '0';
+                        
+                        // Function to resize iframe to fit content
+                        function resizeIframe() {
+                            try {
+                                const contentHeight = Math.max(
+                                    iframeDoc.body.scrollHeight,
+                                    iframeDoc.documentElement.scrollHeight,
+                                    iframeDoc.body.offsetHeight,
+                                    iframeDoc.documentElement.offsetHeight
+                                );
+                                
+                                // Add some extra space to ensure everything is visible
+                                iframe.style.height = (contentHeight + 50) + 'px';
+                                
+                            } catch (e) {
+                                console.error('Error resizing iframe:', e);
+                            }
+                        }
+                        
+                        // Initial resize
+                        resizeIframe();
+                        
+                        // Add a small delay and resize again to catch any dynamic content
+                        setTimeout(resizeIframe, 500);
+                        setTimeout(resizeIframe, 1000);
+                        
+                        // Set up mutation observer to handle dynamic content
+                        if (typeof MutationObserver !== 'undefined') {
+                            const observer = new MutationObserver(function(mutations) {
+                                resizeIframe();
+                            });
+                            
+                            observer.observe(iframeDoc.body, {
+                                childList: true,
+                                subtree: true,
+                                attributes: true,
+                                characterData: true
+                            });
+                            
+                            // Also observe the window resize event
+                            window.addEventListener('resize', function() {
+                                resizeIframe();
+                            });
+                        }
+                        
+                    } catch (e) {
+                        console.error('Error initializing iframe:', e);
+                    }
+                };
+            }
+        });
+    </script>
     
     <!-- FACULTY SECTION -->
     <section class="faculty-section" style="margin: 4rem 0; width: 100%;">
