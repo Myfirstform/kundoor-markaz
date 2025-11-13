@@ -238,7 +238,7 @@
     </script>
     
     <!-- FACULTY SECTION -->
-    <section id="faculty" class="section" style="padding: 4rem 0; width: 100%;">
+    <section id="faculty" class="section" style="padding: 2rem 0 0;">
         <div class="container" style="padding: 0 15px;">
             <div class="section-header" data-aos="fade-up">
                 <p class="section-subtitle">Our Esteemed</p>
@@ -252,7 +252,6 @@
                     src="https://preview--image-book-cms.lovable.app/faculty" 
                     style="
                         width: 100%;
-                        min-height: 800px;
                         border: none;
                         display: block;
                         margin: 0;
@@ -270,31 +269,29 @@
     <style>
         /* Faculty section styles */
         #faculty {
-            padding: 4rem 0 !important;
+            padding: 1rem 0 0 !important;
             overflow: visible;
             position: relative;
         }
         
         #faculty iframe {
             width: 100%;
-            min-height: 800px;
             border: none;
             display: block;
             margin: 0;
             padding: 0;
             overflow: hidden;
-            transition: height 0.3s ease-in-out;
         }
         
         @media (min-width: 1200px) {
             #faculty iframe {
-                min-height: 1000px;
+                min-height: 1200px;
             }
         }
     </style>
     
     <script>
-        // Faculty iframe resizing
+        // Wait for the iframe to load
         document.addEventListener('DOMContentLoaded', function() {
             const facultyIframe = document.getElementById('faculty-iframe');
             
