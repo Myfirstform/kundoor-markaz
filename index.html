@@ -180,19 +180,59 @@
     </section>
     
     <!-- FACULTY SECTION -->
-    <section style="margin: 0; padding: 0; width: 100%;">
-        <iframe 
-            src="https://preview--image-book-cms.lovable.app/faculty" 
-            style="width: 100%; 
-                   height: 100%; 
-                   border: none; 
-                   display: block; 
-                   padding: 0; 
-                   margin: 0; 
-                   overflow: hidden;"
-            frameborder="0">
-        </iframe>
+    <section class="faculty-section" style="margin: 4rem 0; width: 100%;">
+        <div class="container" style="padding: 0 15px;">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-subtitle">Our Esteemed</p>
+                <h2 class="section-title">Faculty Members</h2>
+            </div>
+        </div>
+        <div style="width: 100%; overflow: hidden; padding: 0 15px;">
+            <div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
+                <div style="position: relative; padding-bottom: 75%; /* 4:3 Aspect Ratio */">
+                    <iframe 
+                        src="https://preview--image-book-cms.lovable.app/faculty" 
+                        style="position: absolute;
+                               top: 0;
+                               left: 0;
+                               width: 100%;
+                               height: 100%;
+                               border: none;
+                               border-radius: 8px;
+                               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                               transition: all 0.3s ease-in-out;"
+                        frameborder="0"
+                        scrolling="auto"
+                        onload="this.style.opacity='1'"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
     </section>
+    <style>
+        @media (max-width: 1200px) {
+            .faculty-section .section-header {
+                padding: 0 20px;
+            }
+        }
+        @media (max-width: 768px) {
+            .faculty-section .section-header {
+                padding: 0 15px;
+            }
+            .faculty-section .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .faculty-section {
+                margin: 2rem 0;
+            }
+            .faculty-section .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
     
     <!-- PRINCIPAL'S ADDRESS -->
     <section class="section bg-light">
