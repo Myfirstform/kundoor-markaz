@@ -238,36 +238,130 @@
     </script>
     
     <!-- FACULTY SECTION -->
-    <section class="faculty-section" style="margin: 4rem 0; width: 100%;">
+    <section id="faculty" class="section" style="padding: 4rem 0; width: 100%;">
         <div class="container" style="padding: 0 15px;">
             <div class="section-header" data-aos="fade-up">
                 <p class="section-subtitle">Our Esteemed</p>
                 <h2 class="section-title">Faculty Members</h2>
             </div>
         </div>
-        <div style="width: 100%; overflow: hidden; padding: 0 15px;">
-            <div style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
-                <div style="position: relative; padding-bottom: 75%; /* 4:3 Aspect Ratio */">
-                    <iframe 
-                        src="https://preview--image-book-cms.lovable.app/faculty" 
-                        style="position: absolute;
-                               top: 0;
-                               left: 0;
-                               width: 100%;
-                               height: 100%;
-                               border: none;
-                               border-radius: 8px;
-                               box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                               transition: all 0.3s ease-in-out;"
-                        frameborder="0"
-                        scrolling="auto"
-                        onload="this.style.opacity='1'"
-                        loading="lazy">
-                    </iframe>
-                </div>
+        <div style="width: 100%; max-width: 100%; margin: 0; padding: 0 15px;">
+            <div style="width: 100%;">
+                <iframe 
+                    id="faculty-iframe"
+                    src="https://preview--image-book-cms.lovable.app/faculty" 
+                    style="
+                        width: 100%;
+                        min-height: 800px;
+                        border: none;
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+                    "
+                    frameborder="0"
+                    scrolling="no"
+                    loading="eager">
+                </iframe>
             </div>
         </div>
     </section>
+    
+    <style>
+        /* Faculty section styles */
+        #faculty {
+            padding: 4rem 0 !important;
+            overflow: visible;
+            position: relative;
+        }
+        
+        #faculty iframe {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            transition: height 0.3s ease-in-out;
+        }
+        
+        @media (min-width: 1200px) {
+            #faculty iframe {
+                min-height: 1000px;
+            }
+        }
+    </style>
+    
+    <script>
+        // Faculty iframe resizing
+        document.addEventListener('DOMContentLoaded', function() {
+            const facultyIframe = document.getElementById('faculty-iframe');
+            
+            if (facultyIframe) {
+                facultyIframe.onload = function() {
+                    try {
+                        const iframeDoc = facultyIframe.contentDocument || facultyIframe.contentWindow.document;
+                        
+                        // Remove any header elements that might be in the iframe
+                        const header = iframeDoc.querySelector('header, .header');
+                        if (header) header.style.display = 'none';
+                        
+                        // Make sure the body has no margins or padding
+                        iframeDoc.body.style.margin = '0';
+                        iframeDoc.body.style.padding = '0';
+                        
+                        // Function to resize iframe to fit content
+                        function resizeFacultyIframe() {
+                            try {
+                                const contentHeight = Math.max(
+                                    iframeDoc.body.scrollHeight,
+                                    iframeDoc.documentElement.scrollHeight,
+                                    iframeDoc.body.offsetHeight,
+                                    iframeDoc.documentElement.offsetHeight
+                                );
+                                
+                                // Add some extra space to ensure everything is visible
+                                facultyIframe.style.height = (contentHeight + 50) + 'px';
+                                
+                            } catch (e) {
+                                console.error('Error resizing faculty iframe:', e);
+                            }
+                        }
+                        
+                        // Initial resize
+                        resizeFacultyIframe();
+                        
+                        // Add a small delay and resize again to catch any dynamic content
+                        setTimeout(resizeFacultyIframe, 500);
+                        setTimeout(resizeFacultyIframe, 1000);
+                        
+                        // Set up mutation observer to handle dynamic content
+                        if (typeof MutationObserver !== 'undefined') {
+                            const observer = new MutationObserver(function(mutations) {
+                                resizeFacultyIframe();
+                            });
+                            
+                            observer.observe(iframeDoc.body, {
+                                childList: true,
+                                subtree: true,
+                                attributes: true,
+                                characterData: true
+                            });
+                            
+                            // Also observe the window resize event
+                            window.addEventListener('resize', function() {
+                                resizeFacultyIframe();
+                            });
+                        }
+                        
+                    } catch (e) {
+                        console.error('Error initializing faculty iframe:', e);
+                    }
+                };
+            }
+        });
+    </script>
     <style>
         @media (max-width: 1200px) {
             .faculty-section .section-header {
