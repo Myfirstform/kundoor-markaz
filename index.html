@@ -158,21 +158,13 @@
             margin: 0;
             padding: 0;
             overflow-y: auto;
-            min-height: 2200px;
-            max-height: 1500px;
+            min-height: 600px; /* Minimum height before scrolling */
+            max-height: 1500px; /* Maximum height before scrolling */
         }
         
         @media (min-width: 1200px) {
             #courses iframe {
-                min-height: 1500px;
-                max-height: none; /* Remove max-height on larger screens */
-            }
-        }
-        
-        @media (max-width: 767px) {
-            #courses iframe {
-                min-height: 2200px;
-                max-height: 2200px; /* Match min-height to prevent any cutoff */
+                min-height: 1200px;
             }
         }
     </style>
