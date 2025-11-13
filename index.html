@@ -121,27 +121,67 @@
     </section>
     
     <!-- COURSES -->
-    <section id="courses" class="section" style="padding: 4rem 0 0;">
-        <div class="container" style="max-width: 100%; padding: 0;">
-            <div class="section-header" data-aos="fade-up" style="padding: 0 15px 2rem;">
-                <p class="section-subtitle">Academic Programs</p>
-                <h2 class="section-title">Our Courses</h2>
-            </div>
-            
-            <!-- Responsive iframe container -->
-            <div style="width: 100%; overflow: hidden; margin: 0; padding: 0;">
+    <section id="courses" class="section" style="padding: 2rem 0 0;">
+        <div style="width: 100%; max-width: 100%; margin: 0; padding: 0;">
+            <div style="width: 100%; height: 100%;">
                 <iframe 
                     src="https://preview--image-book-cms.lovable.app/courses" 
-                    style="width: 100%;
-                           min-height: 800px;
-                           border: none;
-                           display: block;
-                           margin: 0;
-                           padding: 0;
-                           overflow: hidden;"
+                    style="
+                        width: 100%;
+                        height: 100vh;
+                        min-height: 800px;
+                        border: none;
+                        display: block;
+                        margin: 0;
+                        padding: 0;
+                        overflow: visible;
+                    "
                     frameborder="0"
                     scrolling="no"
-                    onload="this.style.opacity='1'; this.contentWindow.document.body.style.margin='0'; this.contentWindow.document.body.style.padding='0';"
+                    onload="
+                        this.style.opacity='1';
+                        const iframeDoc = this.contentDocument || this.contentWindow.document;
+                        if (iframeDoc) {
+                            // Remove any existing header that might be in the iframe
+                            const header = iframeDoc.querySelector('header, .header');
+                            if (header) header.style.display = 'none';
+                            
+                            // Reset body styles
+                            iframeDoc.body.style.margin = '0';
+                            iframeDoc.body.style.padding = '0';
+                            iframeDoc.body.style.overflow = 'visible';
+                            
+                            // Auto-resize iframe to fit content
+                            const resizeIframe = () => {
+                                const contentHeight = Math.max(
+                                    iframeDoc.body.scrollHeight,
+                                    iframeDoc.documentElement.scrollHeight,
+                                    iframeDoc.body.offsetHeight,
+                                    iframeDoc.documentElement.offsetHeight,
+                                    iframeDoc.body.clientHeight,
+                                    iframeDoc.documentElement.clientHeight
+                                );
+                                this.style.height = Math.max(contentHeight, 600) + 'px';
+                            };
+                            
+                            // Initial resize
+                            resizeIframe();
+                            
+                            // Add resize observer for dynamic content
+                            if (typeof ResizeObserver !== 'undefined') {
+                                new ResizeObserver(resizeIframe).observe(iframeDoc.body);
+                            }
+                            
+                            // Also check for content changes
+                            const observer = new MutationObserver(resizeIframe);
+                            observer.observe(iframeDoc.body, {
+                                childList: true,
+                                subtree: true,
+                                attributes: true,
+                                characterData: true
+                            });
+                        }
+                    "
                     loading="eager">
                 </iframe>
             </div>
@@ -150,36 +190,39 @@
     
     <style>
         /* Responsive adjustments */
+        #courses {
+            padding: 1rem 0 0 !important;
+            overflow: hidden;
+        }
+        #courses iframe {
+            min-height: 600px;
+            transition: height 0.3s ease-in-out;
+        }
+        
         @media (max-width: 1200px) {
-            #courses {
-                padding: 3rem 0 0 !important;
-            }
             #courses iframe {
-                min-height: 700px !important;
+                min-height: 550px;
             }
         }
+        
         @media (max-width: 992px) {
             #courses iframe {
-                min-height: 650px !important;
+                min-height: 500px;
             }
         }
+        
         @media (max-width: 768px) {
-            #courses {
-                padding: 2rem 0 0 !important;
-            }
             #courses iframe {
-                min-height: 500px !important;
+                min-height: 450px;
             }
         }
+        
         @media (max-width: 576px) {
             #courses {
-                padding: 1.5rem 0 0 !important;
-            }
-            #courses .section-header {
-                padding: 0 15px 1.5rem !important;
+                padding: 0.5rem 0 0 !important;
             }
             #courses iframe {
-                min-height: 400px !important;
+                min-height: 400px;
             }
         }
     </style>
