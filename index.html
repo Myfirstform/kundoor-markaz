@@ -129,7 +129,6 @@
                     src="https://preview--image-book-cms.lovable.app/courses" 
                     style="
                         width: 100%;
-                        min-height: 1000px;
                         border: none;
                         display: block;
                         margin: 0;
@@ -154,39 +153,16 @@
         
         #courses iframe {
             width: 100%;
-            min-height: 1000px;
-            transition: height 0.3s ease-in-out;
             border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
         
-        /* Responsive adjustments */
         @media (min-width: 1200px) {
             #courses iframe {
                 min-height: 1200px;
-            }
-        }
-        
-        @media (max-width: 1199px) and (min-width: 992px) {
-            #courses iframe {
-                min-height: 1100px;
-            }
-        }
-        
-        @media (max-width: 991px) and (min-width: 768px) {
-            #courses iframe {
-                min-height: 1000px;
-            }
-        }
-        
-        @media (max-width: 767px) and (min-width: 576px) {
-            #courses iframe {
-                min-height: 900px;
-            }
-        }
-        
-        @media (max-width: 575px) {
-            #courses iframe {
-                min-height: 800px;
             }
         }
     </style>
