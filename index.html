@@ -307,19 +307,52 @@
                         // Make sure the body has no margins or padding
                         iframeDoc.body.style.margin = '0';
                         iframeDoc.body.style.padding = '0';
+                        iframeDoc.documentElement.style.margin = '0';
+                        iframeDoc.documentElement.style.padding = '0';
+                        
+                        // Function to get the full height of the document
+                        function getFullHeight() {
+                            const body = iframeDoc.body;
+                            const html = iframeDoc.documentElement;
+                            
+                            // Get the maximum of the various body and document element properties
+                            const height = Math.max(
+                                body.scrollHeight, 
+                                body.offsetHeight, 
+                                html.clientHeight, 
+                                html.scrollHeight, 
+                                html.offsetHeight,
+                                // Additional checks for better accuracy
+                                Array.from(body.getElementsByTagName('*')).reduce((max, el) => {
+                                    return Math.max(max, el.offsetTop + el.offsetHeight);
+                                }, 0)
+                            );
+                            
+                            return height;
+                        }
                         
                         // Function to resize iframe to fit content
                         function resizeFacultyIframe() {
                             try {
-                                const contentHeight = Math.max(
-                                    iframeDoc.body.scrollHeight,
-                                    iframeDoc.documentElement.scrollHeight,
-                                    iframeDoc.body.offsetHeight,
-                                    iframeDoc.documentElement.offsetHeight
+                                const contentHeight = getFullHeight();
+                                const viewportHeight = Math.max(
+                                    iframeDoc.documentElement.clientHeight || 0,
+                                    window.innerHeight || 0
                                 );
                                 
+                                // Use the larger of the calculated content height or viewport height
+                                const newHeight = Math.max(contentHeight, viewportHeight);
+                                
                                 // Add some extra space to ensure everything is visible
-                                facultyIframe.style.height = (contentHeight + 50) + 'px';
+                                facultyIframe.style.height = (newHeight + 100) + 'px';
+                                
+                                // Double check after a small delay
+                                setTimeout(() => {
+                                    const finalHeight = getFullHeight();
+                                    if (finalHeight > newHeight) {
+                                        facultyIframe.style.height = (finalHeight + 100) + 'px';
+                                    }
+                                }, 100);
                                 
                             } catch (e) {
                                 console.error('Error resizing faculty iframe:', e);
@@ -329,9 +362,11 @@
                         // Initial resize
                         resizeFacultyIframe();
                         
-                        // Add a small delay and resize again to catch any dynamic content
-                        setTimeout(resizeFacultyIframe, 500);
-                        setTimeout(resizeFacultyIframe, 1000);
+                        // Add multiple resize attempts to catch any dynamic content
+                        const resizeAttempts = [100, 300, 500, 1000, 2000];
+                        resizeAttempts.forEach(delay => {
+                            setTimeout(resizeFacultyIframe, delay);
+                        });
                         
                         // Set up mutation observer to handle dynamic content
                         if (typeof MutationObserver !== 'undefined') {
@@ -339,23 +374,33 @@
                                 resizeFacultyIframe();
                             });
                             
-                            observer.observe(iframeDoc.body, {
+                            observer.observe(iframeDoc.documentElement, {
                                 childList: true,
                                 subtree: true,
                                 attributes: true,
-                                characterData: true
+                                characterData: true,
+                                attributeFilter: ['style', 'class']
                             });
                             
                             // Also observe the window resize event
+                            let resizeTimer;
                             window.addEventListener('resize', function() {
-                                resizeFacultyIframe();
+                                clearTimeout(resizeTimer);
+                                resizeTimer = setTimeout(resizeFacultyIframe, 100);
                             });
                         }
                         
                     } catch (e) {
                         console.error('Error initializing faculty iframe:', e);
+                        // Fallback to a large height if there's an error
+                        facultyIframe.style.height = '3000px';
                     }
                 };
+                
+                // Force reload the iframe if it's already loaded
+                if (facultyIframe.contentDocument && facultyIframe.contentDocument.readyState === 'complete') {
+                    facultyIframe.onload();
+                }
             }
         });
     </script>
