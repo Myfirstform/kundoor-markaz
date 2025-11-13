@@ -4,46 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="kundoor markaz, markaz kundoor, markaz, arabic college, jamia nooriyya, markaz, kundoor college, islamic college, islamic institution">
-    <meta name="description" content="Official website of Kundoor Markaz Arabic College – Islamic education, courses, publications, and more from Kerala's renowned institution.">
-    <link rel="icon" href="pics/markaz web icon.png" type="image/x-icon">
+    <meta name="keywords" content="kundoor markaz, markaz kundoor, gallery, photos, campus">
+    <meta name="description" content="Gallery of Kundoor Markaz - View photos and moments from our campus life.">
+    <link rel="icon" href="../pics/markaz web icon.png" type="image/x-icon">
     
-    <meta property="og:title" content="Kundoor Markaz">
-    <meta property="og:description" content="Premier Islamic Educational Institution">
-    <meta property="og:image" content="https://www.kundoormarkaz.com/pics/markaz web link icon.jpg">
-    <meta property="og:url" content="https://www.kundoormarkaz.com/">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kundoor Markaz">
-    <meta name="twitter:description" content="Premier Islamic Educational Institution">
-    <meta name="twitter:image" content="https://www.kundoormarkaz.com/pics/markaz%20web%20link%20icon.jpg">
-    
-    <title>Kundoor Markaz | Islamic Education Excellence</title>
+    <title>Gallery | Kundoor Markaz</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="modern-style.css">
-    <link rel="stylesheet" href="modern-components.css">
+    <link rel="stylesheet" href="../modern-style.css">
+    <link rel="stylesheet" href="../modern-components.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .gallery-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        .iframe-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+        .iframe-container iframe {
+            min-height: 600px;
+            width: 111.11%;
+            margin-left: -5.55%;
+        }
+        @media (max-width: 768px) {
+            .iframe-container iframe {
+                height: 70vh;
+                min-height: 500px;
+            }
+        }
+    </style>
 </head>
 <body>
     
     <!-- HEADER -->
     <header class="header">
         <div class="header-container">
-            <a href="index.html">
-                <img src="pics/logo 66666.png" alt="Kundoor Markaz Logo" class="logo">
+            <a href="../index.html">
+                <img src="../pics/logo 66666.png" alt="Kundoor Markaz Logo" class="logo">
             </a>
             
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="pages/admission.html" class="nav-link">Admission</a></li>
-                    <li><a href="pages/gallery.html" class="nav-link">Gallery</a></li>
-                    <li><a href="pages/publication.html" class="nav-link">Publication</a></li>
-                    <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="./admission.html" class="nav-link">Admission</a></li>
+                    <li><a href="./gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="./publication.html" class="nav-link">Publication</a></li>
+                    <li><a href="./contact.html" class="nav-link">Contact</a></li>
                     
                     <div class="header-social">
                         <a href="https://www.instagram.com/thasqeef_media/" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -62,602 +78,50 @@
         </div>
     </header>
     
-    <!-- HERO -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="hero-subtitle" data-aos="fade-up">Welcome to</p>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="50">
-                Markazu Saqafathil
-                <span class="highlight">Islamiyya Kundoor</span>
-            </h1>
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="100">
-                A premier Islamic educational institution blending traditional Islamic studies with modern academics, 
-                nurturing scholars who excel in both religious and contemporary knowledge.
-            </p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="150">
-                <a href="pages/admission.html" class="btn btn-primary">
-                    <i class="fas fa-graduation-cap"></i> Apply Now
-                </a>
-                <a href="#about" class="btn btn-secondary">
-                    <i class="fas fa-info-circle"></i> Learn More
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ABOUT -->
-    <section id="about" class="section">
+    <!-- PAGE HEADER -->
+    <div class="page-header">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <p class="section-subtitle">Who We Are</p>
-                <h2 class="section-title">About Kundoor Markaz</h2>
-                <p class="section-description">
-                    Committed to nurturing scholars who excel in both religious and modern education
+            <h1 data-aos="fade-up">Gallery</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Moments from our campus</p>
+        </div>
+    </div>
+    
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item">Gallery</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- GALLERY SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-description" data-aos="fade-up">
+                <p style="line-height: 1.8; font-size: 1.1rem;">
+                    Stay connected with Kundoor Markazu Ssaqafathil Islamiyya through our latest news, events, and announcements. This page keeps you informed about program highlights, student activities, and special occasions. Check back regularly to stay updated with all that's happening on our campus!
                 </p>
             </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3rem;">
-                <div data-aos="fade-right">
-                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Excellence in Islamic & Modern Education</h3>
-                    <p style="margin-bottom: 1rem;">
-                        At Markazu Ssaqafathil Islamiyya Kundoor, we provide a synthesized education system that integrates 
-                        classical Islamic studies with contemporary academic disciplines, ensuring students are well-prepared 
-                        to contribute meaningfully to society.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        Through a balanced curriculum, experienced faculty, and state-of-the-art facilities, we strive to shape 
-                        scholars who uphold Islamic values while contributing positively to society.
-                    </p>
-                    <a href="pages/about.html" class="btn btn-outline">
-                        <i class="fas fa-arrow-right"></i> Read More
-                    </a>
-                </div>
-                
-                <div data-aos="fade-left" style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <img src="pics/img1.jpeg" alt="Kundoor Markaz Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- COURSES -->
-    <section id="courses" class="section" style="padding: 2rem 0 0;">
-        <div style="width: 100%; max-width: 100%; margin: 0; padding: 0;">
-            <div style="width: 100%;">
+            <div style="margin: 0; padding: 0; width: 100%;">
                 <iframe 
-                    id="courses-iframe"
-                    src="https://preview--image-book-cms.lovable.app/courses" 
-                    style="
-                        width: 100%;
-                        border: none;
-                        display: block;
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden;
-                    "
-                    frameborder="0"
-                    scrolling="no"
-                    loading="eager">
+                    src="https://image-book-cms.vercel.app/" 
+                    title="Gallery Images"
+                    style="width: 100%; 
+                           height: 100vh; 
+                           min-height: 800px;
+                           border: none; 
+                           margin: 0;
+                           padding: 0;
+                           display: block;
+                           overflow: auto;
+                           -webkit-overflow-scrolling: touch;"
+                    loading="lazy"
+                    scrolling="yes"
+                    frameborder="0">
                 </iframe>
-            </div>
-        </div>
-    </section>
-    
-    <style>
-        /* Base styles for the courses section */
-        #courses {
-            padding: 1rem 0 0 !important;
-            overflow: visible;
-            position: relative;
-        }
-        
-        #courses iframe {
-            width: 100%;
-            border: none;
-            display: block;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        @media (min-width: 1200px) {
-            #courses iframe {
-                min-height: 1200px;
-            }
-        }
-    </style>
-    
-    <script>
-        // Wait for the iframe to load
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.getElementById('courses-iframe');
-            
-            if (iframe) {
-                iframe.onload = function() {
-                    try {
-                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                        
-                        // Remove any header elements that might be in the iframe
-                        const header = iframeDoc.querySelector('header, .header');
-                        if (header) header.style.display = 'none';
-                        
-                        // Make sure the body has no margins or padding
-                        iframeDoc.body.style.margin = '0';
-                        iframeDoc.body.style.padding = '0';
-                        
-                        // Function to resize iframe to fit content
-                        function resizeIframe() {
-                            try {
-                                const contentHeight = Math.max(
-                                    iframeDoc.body.scrollHeight,
-                                    iframeDoc.documentElement.scrollHeight,
-                                    iframeDoc.body.offsetHeight,
-                                    iframeDoc.documentElement.offsetHeight
-                                );
-                                
-                                // Add some extra space to ensure everything is visible
-                                iframe.style.height = (contentHeight + 50) + 'px';
-                                
-                            } catch (e) {
-                                console.error('Error resizing iframe:', e);
-                            }
-                        }
-                        
-                        // Initial resize
-                        resizeIframe();
-                        
-                        // Add a small delay and resize again to catch any dynamic content
-                        setTimeout(resizeIframe, 500);
-                        setTimeout(resizeIframe, 1000);
-                        
-                        // Set up mutation observer to handle dynamic content
-                        if (typeof MutationObserver !== 'undefined') {
-                            const observer = new MutationObserver(function(mutations) {
-                                resizeIframe();
-                            });
-                            
-                            observer.observe(iframeDoc.body, {
-                                childList: true,
-                                subtree: true,
-                                attributes: true,
-                                characterData: true
-                            });
-                            
-                            // Also observe the window resize event
-                            window.addEventListener('resize', function() {
-                                resizeIframe();
-                            });
-                        }
-                        
-                    } catch (e) {
-                        console.error('Error initializing iframe:', e);
-                    }
-                };
-            }
-        });
-    </script>
-    
-    <!-- FACULTY SECTION -->
-    <!-- <section id="faculty" class="section" style="padding: 2rem 0 0;">
-        <div class="container" style="padding: 0 15px;">
-            <div class="section-header" data-aos="fade-up">
-                <p class="section-subtitle">Our Esteemed</p>
-                <h2 class="section-title">Faculty Members</h2>
-            </div>
-        </div>
-        <div style="width: 100%; max-width: 100%; margin: 0; padding: 0 15px;">
-            <div style="width: 100%;">
-                <iframe 
-                    id="faculty-iframe"
-                    src="https://preview--image-book-cms.lovable.app/faculty" 
-                    style="
-                        width: 100%;
-                        border: none;
-                        display: block;
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden;
-                    "
-                    frameborder="0"
-                    scrolling="no"
-                    loading="eager">
-                </iframe>
-            </div>
-        </div>
-    </section> -->
-
-
-
-
-    <section id="courses" class="section" style="padding: 2rem 0 0;">
-        <div style="width: 100%; max-width: 100%; margin: 0; padding: 0;">
-            <div style="width: 100%;">
-                <iframe 
-                    id="courses-iframe"
-                    src="https://preview--image-book-cms.lovable.app/faculty" 
-                    style="
-                        width: 100%;
-                        border: none;
-                        display: block;
-                        margin: 0;
-                        padding: 0;
-                        overflow: hidden;
-                    "
-                    frameborder="0"
-                    scrolling="no"
-                    loading="eager">
-                </iframe>
-            </div>
-        </div>
-    </section>
-    <style>
-        /* Faculty section styles */
-        #faculty {
-            padding: 1rem 0 0 !important;
-            overflow: visible;
-            position: relative;
-        }
-        
-        #faculty iframe {
-            width: 100%;
-            border: none;
-            display: block;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        @media (min-width: 1200px) {
-            #faculty iframe {
-                min-height: 1200px;
-            }
-        }
-    </style>
-    
-    <script>
-        // Wait for the iframe to load
-        document.addEventListener('DOMContentLoaded', function() {
-            const facultyIframe = document.getElementById('faculty-iframe');
-            
-            if (facultyIframe) {
-                facultyIframe.onload = function() {
-                    try {
-                        const iframeDoc = facultyIframe.contentDocument || facultyIframe.contentWindow.document;
-                        
-                        // Remove any header elements that might be in the iframe
-                        const header = iframeDoc.querySelector('header, .header');
-                        if (header) header.style.display = 'none';
-                        
-                        // Make sure the body has no margins or padding
-                        iframeDoc.body.style.margin = '0';
-                        iframeDoc.body.style.padding = '0';
-                        iframeDoc.documentElement.style.margin = '0';
-                        iframeDoc.documentElement.style.padding = '0';
-                        
-                        // Function to get the full height of the document
-                        function getFullHeight() {
-                            const body = iframeDoc.body;
-                            const html = iframeDoc.documentElement;
-                            
-                            // Get the maximum of the various body and document element properties
-                            const height = Math.max(
-                                body.scrollHeight, 
-                                body.offsetHeight, 
-                                html.clientHeight, 
-                                html.scrollHeight, 
-                                html.offsetHeight,
-                                // Additional checks for better accuracy
-                                Array.from(body.getElementsByTagName('*')).reduce((max, el) => {
-                                    return Math.max(max, el.offsetTop + el.offsetHeight);
-                                }, 0)
-                            );
-                            
-                            return height;
-                        }
-                        
-                        // Function to resize iframe to fit content
-                        function resizeFacultyIframe() {
-                            try {
-                                const contentHeight = getFullHeight();
-                                const viewportHeight = Math.max(
-                                    iframeDoc.documentElement.clientHeight || 0,
-                                    window.innerHeight || 0
-                                );
-                                
-                                // Use the larger of the calculated content height or viewport height
-                                const newHeight = Math.max(contentHeight, viewportHeight);
-                                
-                                // Add some extra space to ensure everything is visible
-                                facultyIframe.style.height = (newHeight + 100) + 'px';
-                                
-                                // Double check after a small delay
-                                setTimeout(() => {
-                                    const finalHeight = getFullHeight();
-                                    if (finalHeight > newHeight) {
-                                        facultyIframe.style.height = (finalHeight + 100) + 'px';
-                                    }
-                                }, 100);
-                                
-                            } catch (e) {
-                                console.error('Error resizing faculty iframe:', e);
-                            }
-                        }
-                        
-                        // Initial resize
-                        resizeFacultyIframe();
-                        
-                        // Add multiple resize attempts to catch any dynamic content
-                        const resizeAttempts = [100, 300, 500, 1000, 2000];
-                        resizeAttempts.forEach(delay => {
-                            setTimeout(resizeFacultyIframe, delay);
-                        });
-                        
-                        // Set up mutation observer to handle dynamic content
-                        if (typeof MutationObserver !== 'undefined') {
-                            const observer = new MutationObserver(function(mutations) {
-                                resizeFacultyIframe();
-                            });
-                            
-                            observer.observe(iframeDoc.documentElement, {
-                                childList: true,
-                                subtree: true,
-                                attributes: true,
-                                characterData: true,
-                                attributeFilter: ['style', 'class']
-                            });
-                            
-                            // Also observe the window resize event
-                            let resizeTimer;
-                            window.addEventListener('resize', function() {
-                                clearTimeout(resizeTimer);
-                                resizeTimer = setTimeout(resizeFacultyIframe, 100);
-                            });
-                        }
-                        
-                    } catch (e) {
-                        console.error('Error initializing faculty iframe:', e);
-                        // Fallback to a large height if there's an error
-                        facultyIframe.style.height = '3000px';
-                    }
-                };
-                
-                // Force reload the iframe if it's already loaded
-                if (facultyIframe.contentDocument && facultyIframe.contentDocument.readyState === 'complete') {
-                    facultyIframe.onload();
-                }
-            }
-        });
-    </script>
-    <style>
-        @media (max-width: 1200px) {
-            .faculty-section .section-header {
-                padding: 0 20px;
-            }
-        }
-        @media (max-width: 768px) {
-            .faculty-section .section-header {
-                padding: 0 15px;
-            }
-            .faculty-section .section-title {
-                font-size: 1.8rem;
-            }
-        }
-        @media (max-width: 576px) {
-            .faculty-section {
-                margin: 2rem 0;
-            }
-            .faculty-section .section-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
-    
-    <!-- PRINCIPAL'S ADDRESS -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="principal-section">
-                <div class="principal-image" data-aos="fade-right">
-                    <img src="pics/VALIYA USTHATH bg.png" alt="Principal" loading="lazy">
-                    <h4 class="principal-name">PK Abdul Gafoor Al Qasimi</h4>
-                    <p class="principal-designation">Principal</p>
-                </div>
-                
-                <div class="principal-message" data-aos="fade-left">
-                    <h2>Principal's Address</h2>
-                    <p style="font-weight: 600; color: var(--color-primary); margin-bottom: 1rem;">Welcome to Kundoor Markaz</p>
-                    <p style="margin-bottom: 1rem;">
-                        At Kundoor Markazu Ssaqafathil Islamiyya, we are committed to nurturing a generation of knowledgeable, ethical, and visionary individuals who excel in both Islamic and modern education. Our institution provides a unique learning environment where students develop intellectual depth, moral integrity, and leadership qualities. Through a balanced curriculum, experienced faculty, and state-of-the-art facilities, we strive to shape scholars who uphold Islamic values while contributing positively to society.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        Education at our college is not just about gaining knowledge but about building character, fostering discipline, and instilling a lifelong passion for learning. We invite students to embark on this enlightening journey of faith, wisdom, and excellence, preparing them to face the challenges of the modern world while staying firmly rooted in their Islamic identity. May Allah (SWT) bless our efforts and guide us toward success in this world and the Hereafter.
-                    </p>
-                    <a href="pages/message.html" class="btn btn-outline">
-                        <i class="fas fa-arrow-right"></i> Know More
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CAMPUS EXPLORE SECTION -->
-    <section class="section">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-                <div data-aos="fade-right" style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="pics/img1.jpeg" alt="Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pics/img3.jpeg" alt="Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pics/img4.jpeg" alt="Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pics/img5.jpeg" alt="Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="pics/img6.jpg" alt="Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-                
-                <div data-aos="fade-left">
-                    <h2 style="color: var(--color-primary); margin-bottom: 1rem;">Explore Our Campus</h2>
-                    <p style="line-height: 1.8; margin-bottom: 1.5rem;">
-                        Welcome to Kundoor Markazu Ssaqafathil Islamiyya, a center of excellence where knowledge, spirituality, and modern education come together to create a dynamic learning environment. Our campus is designed to provide students with the best facilities, ensuring their academic, spiritual, and personal growth. From well-equipped classrooms to advanced learning resources, we offer everything needed to foster an atmosphere of intellectual and moral development.
-                    </p>
-                    <a href="./pages/facilities.html" class="btn btn-outline">
-                        <i class="fas fa-arrow-right"></i> Know More
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- MISSION & VISION -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <p class="section-subtitle">Our Values</p>
-                <h2 class="section-title">Mission <span style="color: var(--color-accent);">& Vision</span></h2>
-            </div>
-            
-            <div class="mission-vision-grid">
-                <div class="mv-card" data-aos="fade-up" data-aos-delay="50">
-                    <div class="mv-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Mission</h3>
-                    <p>
-                        To provide a balanced and comprehensive education that seamlessly integrates Islamic knowledge with modern academics. We strive to cultivate intellectual, spiritual, and moral excellence, preparing students to become leaders, scholars, and responsible global citizens.
-                    </p>
-                </div>
-                
-                <div class="mv-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mv-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Vision</h3>
-                    <p>
-                        To establish an institution that nurtures scholars and professionals who embody Islamic values, academic excellence, and social responsibility. Our vision is to create a generation that can bridge the gap between traditional wisdom and contemporary advancements, contributing meaningfully to society.
-                    </p>
-                </div>
-                
-                <div class="mv-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="mv-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Philosophy</h3>
-                    <p>
-                        We believe that education is a transformative journey that blends faith, knowledge, and character development. Our philosophy is rooted in cultivating wisdom, ethical integrity, and leadership, ensuring that our students are spiritually enriched, intellectually empowered, and socially responsible.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- QUICK LINKS -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Quick Links</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <a href="./pages/publication.html" style="text-decoration: none;">
-                    <div data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); color: white; border-radius: 50%; width: 200px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: var(--shadow-lg); cursor: pointer;">
-                        <i class="fas fa-book" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3 style="font-size: 1.1rem; text-transform: capitalize; margin: 0; color: white;">Publications</h3>
-                    </div>
-                </a>
-                
-                <a href="./pages/contact.html" style="text-decoration: none;">
-                    <div data-aos="fade-up" data-aos-delay="200" style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%); color: white; border-radius: 50%; width: 200px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: var(--shadow-lg); cursor: pointer;">
-                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3 style="font-size: 1.1rem; text-transform: capitalize; margin: 0; color: white;">Locate Us</h3>
-                    </div>
-                </a>
-                
-                <a href="./pages/gallery.html" style="text-decoration: none;">
-                    <div data-aos="fade-up" data-aos-delay="300" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); color: white; border-radius: 50%; width: 200px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: var(--shadow-lg); cursor: pointer;">
-                        <i class="fas fa-images" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3 style="font-size: 1.1rem; text-transform: capitalize; margin: 0; color: white;">Gallery</h3>
-                    </div>
-                </a>
-                
-                <a href="./pages/about.html" style="text-decoration: none;">
-                    <div data-aos="fade-up" data-aos-delay="400" style="background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%); color: white; border-radius: 50%; width: 200px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; transition: all 0.3s ease; box-shadow: var(--shadow-lg); cursor: pointer;">
-                        <i class="fas fa-info-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3 style="font-size: 1.1rem; text-transform: capitalize; margin: 0; color: white;">About</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CONTACT SECTION -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>College Address</h4>
-                            <p>Kundoor, Nannambra<br>Malappuram, Kerala<br>676508</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p style="text-transform: lowercase;">thasqeefmedia@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+91 97466 75758</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form" data-aos="fade-left">
-                    <h2 style="margin-bottom: 1.5rem; color: var(--color-primary);"><i class="fas fa-envelope"></i> Send Us a Message</h2>
-                    <form action="send_message.php" method="post">
-                        <div class="form-group">
-                            <label for="name" class="form-label"><i class="fas fa-user"></i> Name:</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email:</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label"><i class="fas fa-comment"></i> Message:</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -680,16 +144,16 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <div class="footer-links">
-                        <a href="pages/about.html" class="footer-link">About Us</a>
-                        <a href="pages/admission.html" class="footer-link">Admissions</a>
-                        <a href="pages/gallery.html" class="footer-link">Gallery</a>
-                        <a href="pages/publication.html" class="footer-link">Publications</a>
+                        <a href="./about.html" class="footer-link">About Us</a>
+                        <a href="./admission.html" class="footer-link">Admissions</a>
+                        <a href="./gallery.html" class="footer-link">Gallery</a>
+                        <a href="./publication.html" class="footer-link">Publications</a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Kundoor, Nannambra<br>Malappuram, Kerala 676508</p>
+                    <p>2W6C+2WV, Kundoor, Nannambra<br>Malappuram, Kerala 676508</p>
                     <p>Email: thasqeefmedia@gmail.com<br>Phone: +91 97466 75758</p>
                 </div>
             </div>
@@ -705,46 +169,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Optimized AOS initialization for faster loading
-        AOS.init({ 
-            duration: 400,        // Reduced from 1000ms to 400ms
-            once: true,           // Animation happens only once
-            offset: 50,           // Start animation earlier
-            delay: 0,             // No initial delay
-            easing: 'ease-out',   // Smooth easing
-            disable: function() {
-                // Disable on slow connections
-                var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                return connection && connection.effectiveType === 'slow-2g';
-            }
-        });
-        
-        // Initialize Swiper with lazy loading
-        var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 30,
-            centeredSlides: true,
-            lazy: {
-                loadPrevNext: true,
-                loadPrevNextAmount: 1,
-            },
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            speed: 600,
-        });
-    </script>
-    <script src="modern-script.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script src="../modern-script.js"></script>
 </body>
 </html>
