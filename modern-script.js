@@ -25,33 +25,66 @@ window.addEventListener('scroll', () => {
 // ============================================
 // 2. MOBILE MENU TOGGLE
 // ============================================
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-const body = document.body;
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    const navLinks = document.querySelectorAll('.nav-link');
+    const html = document.documentElement;
 
-menuToggle?.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navMenu?.classList.toggle('active');
-  body.classList.toggle('no-scroll');
-});
+    // Function to close the menu
+    function closeMenu() {
+        menuToggle?.classList.remove('active');
+        navMenu?.classList.remove('active');
+        body.classList.remove('menu-open');
+        html.style.overflow = ''; // Reset overflow
+    }
 
-// Close menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle?.classList.remove('active');
-    navMenu?.classList.remove('active');
-    body.classList.remove('no-scroll');
-  });
-});
+    // Toggle menu when clicking the hamburger button
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isMenuOpen = menuToggle.classList.toggle('active');
+            navMenu?.classList.toggle('active');
+            
+            if (isMenuOpen) {
+                body.classList.add('menu-open');
+                html.style.overflow = 'hidden';
+            } else {
+                closeMenu();
+            }
+        });
+    }
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!menuToggle?.contains(e.target) && !navMenu?.contains(e.target)) {
-    menuToggle?.classList.remove('active');
-    navMenu?.classList.remove('active');
-    body.classList.remove('no-scroll');
-  }
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu?.classList.contains('active') && 
+            !menuToggle?.contains(e.target) && 
+            !navMenu?.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Close menu on window resize if it's open when switching to desktop
+    function handleResize() {
+        if (window.innerWidth > 968 && navMenu?.classList.contains('active')) {
+            closeMenu();
+        }
+    }
+    
+    window.addEventListener('resize', debounce(handleResize, 250));
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu?.classList.contains('active')) {
+            closeMenu();
+        }
+    });
 });
 
 // ============================================
