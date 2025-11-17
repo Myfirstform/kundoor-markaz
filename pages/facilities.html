@@ -69,78 +69,59 @@
         </div>
     </div>
     
-    <!-- FACILITIES INTRO -->
-    <section class="section">
-        <div class="container">
-            <div data-aos="fade-up" style="text-align: center; max-width: 900px; margin: 0 auto;">
-                <h2 style="color: var(--color-primary); margin-bottom: 1rem; text-transform: capitalize;">Markazu Ssaqafathil Islamiyya Kundoor</h2>
-                <p style="line-height: 1.8; font-size: 1.1rem;">
-                    We offer a range of well-equipped and student-friendly facilities to support holistic learning and personal growth. From modern classrooms and a rich library to comfortable hostels, computer labs, prayer halls, and sports areas, our campus is designed to create an environment that nurtures academic excellence, spiritual development, and well-being. Explore the spaces that make our institution a vibrant place to learn and grow.
-                </p>
-            </div>
-        </div>
+    <!-- FACILITIES IFRAME -->
+    <section class="section" style="padding: 0;">
+        <iframe 
+            id="facilitiesFrame"
+            src="https://preview--image-book-cms.lovable.app/facilities"
+            style="
+                width: 100%; 
+                border: none; 
+                display: block; 
+                margin: 0; 
+                padding: 0; 
+                overflow: hidden;
+            "
+            frameborder="0"
+            scrolling="no"
+            loading="eager">
+        </iframe>
     </section>
     
-    <!-- FACILITIES CARDS -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Learning & Living Spaces</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div class="course-card" data-aos="fade-up">
-                    <div class="course-image">
-                        <img src="../pics/img1.jpeg" alt="Campus Facility" style="width: 100%; height: 250px; object-fit: cover;">
-                    </div>
-                    <div class="course-content">
-                        <h3>Campus</h3>
-                        <p>Our beautiful campus provides a conducive environment for learning and growth.</p>
-                    </div>
-                </div>
+    <script>
+        // Listen for height updates from the iframe
+        window.addEventListener("message", (event) => {
+            if (event.data.iframeHeight) {
+                const iframe = document.getElementById("facilitiesFrame");
+                if (iframe) {
+                    iframe.style.height = event.data.iframeHeight + "px";
+                }
+            }
+        });
+
+        // Set initial height
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById("facilitiesFrame");
+            if (iframe) {
+                // Set initial height (will be updated by the iframe content)
+                iframe.style.height = '1000px'; // Default height, will be adjusted
                 
-                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="course-image">
-                        <img src="pics/img4.jpeg" alt="Reading Room" style="width: 100%; height: 250px; object-fit: cover;">
-                    </div>
-                    <div class="course-content">
-                        <h3>Reading Room</h3>
-                        <p>Quiet and comfortable spaces dedicated to focused study and reading.</p>
-                    </div>
-                </div>
+                // Add error handling for iframe loading
+                iframe.onload = function() {
+                    try {
+                        // This is just for error handling, the actual resizing is done via postMessage
+                        console.log('Facilities iframe loaded successfully');
+                    } catch (e) {
+                        console.error('Error loading iframe:', e);
+                    }
+                };
                 
-                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="course-image">
-                        <img src="../pics/img5.jpeg" alt="Union Office" style="width: 100%; height: 250px; object-fit: cover;">
-                    </div>
-                    <div class="course-content">
-                        <h3>Union Office</h3>
-                        <p>Student union office for organizing activities and student welfare.</p>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="course-image">
-                        <img src="pics/img3.jpeg" alt="Hostel & Classrooms" style="width: 100%; height: 250px; object-fit: cover;">
-                    </div>
-                    <div class="course-content">
-                        <h3>Hostel & Classrooms</h3>
-                        <p>Comfortable hostel facilities and modern classrooms for effective learning.</p>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="course-image">
-                        <img src="pics/library.jpg" alt="Library" style="width: 100%; height: 250px; object-fit: cover;">
-                    </div>
-                    <div class="course-content">
-                        <h3>Library</h3>
-                        <p>Extensive collection of books and resources to support academic research.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                iframe.onerror = function() {
+                    console.error('Error loading iframe');
+                };
+            }
+        });
+    </script>
 
 
     <!-- CONTACT SECTION -->

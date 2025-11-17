@@ -18,29 +18,38 @@
     <style>
         body {
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
-        .gallery-description {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 2rem auto;
-        }
-        .iframe-container {
+        
+        /* Iframe Wrapper */
+        #gallery-iframe-wrapper {
             width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            transform: scale(0.9);
-            transform-origin: top center;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: #fff;
         }
-        .iframe-container iframe {
-            min-height: 600px;
-            width: 111.11%;
-            margin-left: -5.55%;
+        
+        /* Iframe Styling */
+        #galleryIframe {
+            width: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: block;
+            background: #fff;
+            min-height: 100vh;
         }
-        @media (max-width: 768px) {
-            .iframe-container iframe {
-                height: 70vh;
-                min-height: 500px;
-            }
+        
+        /* Ensure no scrollbars */
+        html, body {
+            overflow-x: hidden;
+        }
+        
+        /* Smooth height transitions */
+        #galleryIframe {
+            transition: height 0.3s ease-out;
         }
     </style>
 </head>
@@ -97,32 +106,135 @@
         </div>
     </div>
     
-    <!-- GALLERY SECTION -->
-    <section class="section">
-        <div class="container">
-            <div class="gallery-description" data-aos="fade-up">
-                <p style="line-height: 1.8; font-size: 1.1rem;">
-                    Stay connected with Kundoor Markazu Ssaqafathil Islamiyya through our latest news, events, and announcements. This page keeps you informed about program highlights, student activities, and special occasions. Check back regularly to stay updated with all that's happening on our campus!
-                </p>
-            </div>
-            <div style="margin: 0; padding: 0; width: 100%;">
-                <iframe 
-                    src="https://image-book-cms.vercel.app/" 
-                    title="Gallery Images"
-                    style="width: 100%; 
-                           height: 100vh; 
-                           min-height: 800px;
-                           border: none; 
-                           margin: 0;
-                           padding: 0;
-                           display: block;
-                           overflow: auto;
-                           -webkit-overflow-scrolling: touch;"
-                    loading="lazy"
-                    scrolling="yes"
-                    frameborder="0">
-                </iframe>
-            </div>
+    <!-- GALLERY IFRAME SECTION -->
+    <section id="gallery-iframe-section" style="margin: 0; padding: 0; width: 100%;
+        background: #fff; /* Ensure consistent background */
+        overflow: hidden; /* Prevent any potential scrollbars */
+    ">
+        <iframe
+            id="lovableGalleryIframe"
+            src="https://preview--image-book-cms.lovable.app"
+            style="
+                width: 100%;
+                border: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                display: block;
+                transition: height 300ms ease;
+            "
+            scrolling="no"
+            aria-hidden="false"
+            title="Kundoor Markaz Gallery"
+            loading="eager">
+        </iframe>
+    </section>
+    
+    <script>
+    /*
+     Robust iframe resize handler for Lovable-embedded pages.
+     
+     Behaviour:
+      - Accepts messages of shape: { type: "resize", height: NUMBER, modalOpen?: boolean }
+      - If modalOpen === true -> ignore large height increase (do not expand iframe)
+      - Otherwise use heuristics to avoid reacting to very short spikes:
+         - Debounce incoming heights (200ms)
+         - If newHeight - lastStableHeight > SPIKE_THRESHOLD -> treat as spike and ignore
+         - If the increase persists for more than SPREAD_TIME (e.g., 800ms) then accept it
+      - Smooth CSS transition for visual comfort.
+    */
+    
+    (function () {
+      const iframe = document.getElementById("lovableGalleryIframe");
+      if (!iframe) return;
+    
+      const SPIKE_THRESHOLD = 300; // px; increases larger than this in one update look suspicious
+      const PERSIST_MS = 800;      // if the big height stays this long, accept it
+      const DEBOUNCE_MS = 200;     // debounce postMessage events
+      let lastStableHeight = iframe.clientHeight || 600; // initial fallback
+      let lastRequestedHeight = lastStableHeight;
+      let spikeTimer = null;
+      let debounceTimer = null;
+    
+      // Helper to set iframe height safely
+      function applyHeight(h) {
+        // ensure a minimum
+        const minH = 200;
+        const finalH = Math.max(h, minH);
+        iframe.style.height = finalH + "px";
+        lastStableHeight = finalH;
+      }
+    
+      // Called when we see a candidate height from the iframe
+      function handleCandidateHeight(candidate, meta = {}) {
+        // If Lovable explicitly tells modal is open, ignore large increases
+        if (meta.modalOpen === true) {
+          // If modal opens, keep the iframe at lastStableHeight (do not expand)
+          return;
+        }
+    
+        // simple case: small changes -> accept
+        const diff = candidate - lastStableHeight;
+        if (Math.abs(diff) <= SPIKE_THRESHOLD) {
+          // clear any pending spike timers
+          if (spikeTimer) { clearTimeout(spikeTimer); spikeTimer = null; }
+          applyHeight(candidate);
+          return;
+        }
+    
+        // Large increase (possible modal). Start a persistence timer:
+        lastRequestedHeight = candidate;
+        if (spikeTimer) clearTimeout(spikeTimer);
+    
+        spikeTimer = setTimeout(() => {
+          // If the large height remains after PERSIST_MS, accept it as real change
+          applyHeight(lastRequestedHeight);
+          spikeTimer = null;
+        }, PERSIST_MS);
+      }
+    
+      // Debounced message handler
+      function onMessageDebounced(event) {
+        // IMPORTANT: For security you may want to check event.origin here
+        if (!event.data || event.data.type !== "resize") return;
+        const height = parseInt(event.data.height, 10);
+        if (isNaN(height)) return;
+    
+        // If Lovable includes explicit modal flag, pass it through
+        handleCandidateHeight(height, { modalOpen: !!event.data.modalOpen });
+      }
+    
+      // Debounce wrapper
+      function onMessage(event) {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => onMessageDebounced(event), DEBOUNCE_MS);
+      }
+    
+      window.addEventListener("message", onMessage, false);
+    
+      // On initial load, request a size ping from iframe (if Lovable supports it)
+      // and set a safe default height while waiting.
+      applyHeight(lastStableHeight);
+    
+      // Handle window resize to ensure proper sizing
+      function handleResize() {
+        const newHeight = window.innerHeight;
+        if (Math.abs(newHeight - lastStableHeight) > 50) { // Only adjust for significant changes
+          applyHeight(newHeight);
+        }
+      }
+      
+      // Add debounced resize handler
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(handleResize, 100);
+      });
+      
+      // Initial resize check
+      handleResize();
+    })();
+    </script>
         </div>
     </section>
     
@@ -171,6 +283,17 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>
+        // Auto-resize iframe based on content
+        window.addEventListener("message", (event) => {
+            if (event.data?.type === "resize") {
+                const iframe = document.getElementById("lovableGalleryIframe");
+                if (iframe) {
+                    iframe.style.height = event.data.height + "px";
+                }
+            }
+        });
+    </script>
     <script src="../modern-script.js"></script>
 </body>
 </html>
