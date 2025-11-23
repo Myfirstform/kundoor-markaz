@@ -17,39 +17,25 @@
     <link rel="stylesheet" href="../modern-components.css">
     <style>
         body {
-            overflow-x: hidden;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         
-        /* Iframe Wrapper */
-        #gallery-iframe-wrapper {
+        /* Gallery Section Styling */
+        #gallery-section {
+            padding: 0 !important;
+            margin: 0 !important;
             width: 100%;
             overflow: hidden;
-            margin: 0;
-            padding: 0;
-            background: #fff;
         }
-        
-        /* Iframe Styling */
-        #galleryIframe {
-            width: 100%;
-            border: none;
-            padding: 0;
-            margin: 0;
-            display: block;
-            background: #fff;
-            min-height: 100vh;
-        }
-        
-        /* Ensure no scrollbars */
-        html, body {
-            overflow-x: hidden;
-        }
-        
-        /* Smooth height transitions */
-        #galleryIframe {
-            transition: height 0.3s ease-out;
+
+        #gallery-section iframe {
+            border: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: block !important;
+            width: 100% !important;
         }
     </style>
 </head>
@@ -107,136 +93,28 @@
     </div>
     
     <!-- GALLERY IFRAME SECTION -->
-    <section id="gallery-iframe-section" style="margin: 0; padding: 0; width: 100%;
-        background: #fff; /* Ensure consistent background */
-        overflow: hidden; /* Prevent any potential scrollbars */
-    ">
-        <iframe
-            id="lovableGalleryIframe"
+    <section id="gallery-section" style="padding:0; margin:0;">
+        <iframe 
             src="https://preview--image-book-cms.lovable.app"
             style="
                 width: 100%;
+                height: 800px;
                 border: none;
                 margin: 0;
                 padding: 0;
-                overflow: hidden;
+                overflow: auto;
                 display: block;
-                transition: height 300ms ease;
             "
-            scrolling="no"
-            aria-hidden="false"
+            loading="lazy"
             title="Kundoor Markaz Gallery"
-            loading="eager">
+            aria-label="Kundoor Markaz Gallery">
         </iframe>
     </section>
     
     <script>
-    /*
-     Robust iframe resize handler for Lovable-embedded pages.
-     
-     Behaviour:
-      - Accepts messages of shape: { type: "resize", height: NUMBER, modalOpen?: boolean }
-      - If modalOpen === true -> ignore large height increase (do not expand iframe)
-      - Otherwise use heuristics to avoid reacting to very short spikes:
-         - Debounce incoming heights (200ms)
-         - If newHeight - lastStableHeight > SPIKE_THRESHOLD -> treat as spike and ignore
-         - If the increase persists for more than SPREAD_TIME (e.g., 800ms) then accept it
-      - Smooth CSS transition for visual comfort.
-    */
-    
-    (function () {
-      const iframe = document.getElementById("lovableGalleryIframe");
-      if (!iframe) return;
-    
-      const SPIKE_THRESHOLD = 300; // px; increases larger than this in one update look suspicious
-      const PERSIST_MS = 800;      // if the big height stays this long, accept it
-      const DEBOUNCE_MS = 200;     // debounce postMessage events
-      let lastStableHeight = iframe.clientHeight || 600; // initial fallback
-      let lastRequestedHeight = lastStableHeight;
-      let spikeTimer = null;
-      let debounceTimer = null;
-    
-      // Helper to set iframe height safely
-      function applyHeight(h) {
-        // ensure a minimum
-        const minH = 200;
-        const finalH = Math.max(h, minH);
-        iframe.style.height = finalH + "px";
-        lastStableHeight = finalH;
-      }
-    
-      // Called when we see a candidate height from the iframe
-      function handleCandidateHeight(candidate, meta = {}) {
-        // If Lovable explicitly tells modal is open, ignore large increases
-        if (meta.modalOpen === true) {
-          // If modal opens, keep the iframe at lastStableHeight (do not expand)
-          return;
-        }
-    
-        // simple case: small changes -> accept
-        const diff = candidate - lastStableHeight;
-        if (Math.abs(diff) <= SPIKE_THRESHOLD) {
-          // clear any pending spike timers
-          if (spikeTimer) { clearTimeout(spikeTimer); spikeTimer = null; }
-          applyHeight(candidate);
-          return;
-        }
-    
-        // Large increase (possible modal). Start a persistence timer:
-        lastRequestedHeight = candidate;
-        if (spikeTimer) clearTimeout(spikeTimer);
-    
-        spikeTimer = setTimeout(() => {
-          // If the large height remains after PERSIST_MS, accept it as real change
-          applyHeight(lastRequestedHeight);
-          spikeTimer = null;
-        }, PERSIST_MS);
-      }
-    
-      // Debounced message handler
-      function onMessageDebounced(event) {
-        // IMPORTANT: For security you may want to check event.origin here
-        if (!event.data || event.data.type !== "resize") return;
-        const height = parseInt(event.data.height, 10);
-        if (isNaN(height)) return;
-    
-        // If Lovable includes explicit modal flag, pass it through
-        handleCandidateHeight(height, { modalOpen: !!event.data.modalOpen });
-      }
-    
-      // Debounce wrapper
-      function onMessage(event) {
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => onMessageDebounced(event), DEBOUNCE_MS);
-      }
-    
-      window.addEventListener("message", onMessage, false);
-    
-      // On initial load, request a size ping from iframe (if Lovable supports it)
-      // and set a safe default height while waiting.
-      applyHeight(lastStableHeight);
-    
-      // Handle window resize to ensure proper sizing
-      function handleResize() {
-        const newHeight = window.innerHeight;
-        if (Math.abs(newHeight - lastStableHeight) > 50) { // Only adjust for significant changes
-          applyHeight(newHeight);
-        }
-      }
-      
-      // Add debounced resize handler
-      let resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(handleResize, 100);
-      });
-      
-      // Initial resize check
-      handleResize();
-    })();
+    // Gallery iframe setup - no auto-resizing
+    // All resize handling is now managed by the iframe content
     </script>
-        </div>
-    </section>
     
     <!-- FOOTER -->
     <footer class="footer">
@@ -290,6 +168,13 @@
                 const iframe = document.getElementById("lovableGalleryIframe");
                 if (iframe) {
                     iframe.style.height = event.data.height + "px";
+                }
+            }
+            // Handle image click events - set iframe height to 90vh
+            if (event.data?.type === "imageClick") {
+                const iframe = document.getElementById("lovableGalleryIframe");
+                if (iframe) {
+                    iframe.style.height = "90vh";
                 }
             }
         });
