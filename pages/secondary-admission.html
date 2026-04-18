@@ -17,15 +17,14 @@
     <link rel="stylesheet" href="../modern-components.css">
     
     <style>
-        .iframe-container {
-            width: 100%;
-            height: 100vh;
+        .admission-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
         }
         
-        .iframe-header {
+        .admission-header {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
@@ -35,7 +34,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .iframe-header h1 {
+        .admission-header h1 {
             color: white;
             margin: 0;
             font-size: 1.5rem;
@@ -60,30 +59,92 @@
             transform: translateY(-2px);
         }
         
-        .iframe-wrapper {
+        .admission-content {
             flex: 1;
-            padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 2rem;
         }
         
-        .admission-iframe {
-            width: 100%;
-            max-width: 800px;
-            height: calc(100vh - 140px);
-            border: none;
+        .form-card {
+            background: white;
             border-radius: var(--radius-lg);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: white;
+            padding: 3rem;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .form-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-title {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .form-description {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .apply-btn {
+            background: var(--color-accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .note {
+            background: var(--color-bg-light);
+            border-left: 4px solid var(--color-accent);
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: var(--radius-md);
+            text-align: left;
+        }
+        
+        .note h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .note p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
         }
         
         @media (max-width: 768px) {
-            .iframe-header {
+            .admission-header {
                 padding: 1rem;
             }
             
-            .iframe-header h1 {
+            .admission-header h1 {
                 font-size: 1.2rem;
             }
             
@@ -92,35 +153,59 @@
                 font-size: 0.9rem;
             }
             
-            .iframe-wrapper {
+            .admission-content {
                 padding: 1rem;
             }
             
-            .admission-iframe {
-                height: calc(100vh - 120px);
+            .form-card {
+                padding: 2rem;
+            }
+            
+            .form-icon {
+                font-size: 3rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="iframe-container">
-        <div class="iframe-header">
+    <div class="admission-container">
+        <div class="admission-header">
             <h1><i class="fas fa-school"></i> Secondary Admission Form</h1>
             <a href="./admission.html" class="back-btn">
                 <i class="fas fa-arrow-left"></i> Back to Admissions
             </a>
         </div>
         
-        <div class="iframe-wrapper">
-            <iframe 
-                src="https://script.google.com/macros/s/AKfycbzwNrQ5fr1I7dmzEliJlxdl4cpDiVLNmWjqOhWV18ZxmsEoqkh9X-7GkQdnTdF1QDKz4g/exec"
-                class="admission-iframe"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-                scrolling="auto">
-                Loading...
-            </iframe>
+        <div class="admission-content">
+            <div class="form-card" data-aos="fade-up">
+                <div class="form-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <h2 class="form-title">Secondary Admission</h2>
+                <p class="form-description">
+                    Apply for Secondary Admission (After 7th Standard) at Kundoor Markaz. 
+                    Click the button below to open the application form in a new tab.
+                </p>
+                
+                <a href="https://script.google.com/macros/s/AKfycbzwNrQ5fr1I7dmzEliJlxdl4cpDiVLNmWjqOhWV18ZxmsEoqkh9X-7GkQdnTdF1QDKz4g/exec" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="apply-btn">
+                    <i class="fas fa-external-link-alt"></i> Open Application Form
+                </a>
+                
+                <div class="note">
+                    <h4><i class="fas fa-info-circle"></i> Important Note</h4>
+                    <p>
+                        The application form will open in a new tab. Please fill out all required fields carefully. 
+                        For any assistance, contact our admissions office at +91 97466 75758.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     
