@@ -23,9 +23,61 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// 2. MOBILE MENU TOGGLE
+// 2. DROPDOWN MENU FUNCTIONALITY
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
+    // Desktop dropdown functionality (already handled by CSS)
+    // Mobile dropdown functionality
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const navDropdown = this.closest('.nav-dropdown');
+            const isMobile = window.innerWidth <= 968;
+            
+            if (isMobile) {
+                // Close other dropdowns
+                dropdownToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) {
+                        otherToggle.closest('.nav-dropdown').classList.remove('dropdown-active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                navDropdown.classList.toggle('dropdown-active');
+                
+                // Rotate arrow
+                const arrow = this.querySelector('.dropdown-arrow');
+                if (arrow) {
+                    if (navDropdown.classList.contains('dropdown-active')) {
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('dropdown-active');
+                const arrow = dropdown.querySelector('.dropdown-arrow');
+                if (arrow) {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+            });
+        }
+    });
+    
+    // ============================================
+    // 3. MOBILE MENU TOGGLE
+    // ============================================
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
