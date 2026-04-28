@@ -47,7 +47,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#markaz-arabic-college" class="dropdown-item">Markaz Arabic College</a></li>
                             <li><a href="pages/hifzul-quran-college.html" class="dropdown-item">Hifzul Quran College</a></li>
-                            <li><a href="#orphanage" class="dropdown-item">Orphanage</a></li>
+                            <li><a href="pages/orphanage.html" class="dropdown-item">Orphanage</a></li>
                         </ul>
                     </li>
                     <li><a href="pages/admission.html" class="nav-link">Admission</a></li>
@@ -127,9 +127,52 @@
                     </a>
                 </div>
                 
-                <div data-aos="fade-left" style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg);">
-                    <img src="pics/img1.jpeg" alt="Kundoor Markaz Campus" style="width: 100%; height: 400px; object-fit: cover;" loading="lazy">
+                <div data-aos="fade-left" style="border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); position: relative; transform: translateY(0); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <!-- Image with overlay effect -->
+                    <div style="position: relative; overflow: hidden; border-radius: 16px;">
+                        <img src="pics/img3.jpeg" alt="Kundoor Markaz Campus" 
+                             style="width: 100%; height: 400px; object-fit: cover; 
+                                    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;" 
+                             loading="lazy">
+                        
+                        <!-- Gradient overlay -->
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                                   background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%); 
+                                   opacity: 0; transition: opacity 0.4s ease; pointer-events: none;"></div>
+                        
+                        <!-- Decorative border -->
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+                                   border: 2px solid rgba(255, 255, 255, 0.1); 
+                                   border-radius: 16px; pointer-events: none;"></div>
+                    </div>
+                    
+                    <!-- Floating badge -->
+                    <div style="position: absolute; top: 20px; right: 20px; 
+                               background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); 
+                               color: white; padding: 8px 16px; border-radius: 20px; 
+                               font-size: 0.85rem; font-weight: 600; 
+                               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+                               backdrop-filter: blur(10px);">
+                        <i class="fas fa-star" style="margin-right: 4px;"></i> Excellence
+                    </div>
                 </div>
+                
+                <!-- Add hover styles -->
+                <style>
+                    div[data-aos="fade-left"]:hover {
+                        transform: translateY(-8px) scale(1.02);
+                        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+                    }
+                    
+                    div[data-aos="fade-left"]:hover img {
+                        transform: scale(1.05);
+                        filter: brightness(1.1);
+                    }
+                    
+                    div[data-aos="fade-left"]:hover div[style*="gradient"] {
+                        opacity: 1;
+                    }
+                </style>
             </div>
         </div>
     </section>
